@@ -19,7 +19,13 @@ test('Should have a title of "Create new trip"', function(assert) {
 });
 
 test('Should have an input for the Title field', function(assert) {
-  assert.equal(find('input:contains("Trip Title")').length, 1);
+  assert.equal(find('input#trip-title').length, 1);
+});
+
+test('Should show an error message when the user submits the form with an empty title', function(assert) {
+  click(find('button:contains("Submit")')).then(function() {
+    assert.equal(find('div.error-message:contains("Title cannot be empty")').length, 1);
+  });
 });
 
 
