@@ -46,3 +46,11 @@ test('Should be able visit a speaker page', function(assert) {
     assert.equal(find('h3').text(), 'Trip 1');
   });
 });
+
+test('Should be able to go to new trip page from index route', function(assert) {
+  visit('/').then(function() {
+    click(find('a:contains("Create New Trip")')).then(function() {
+    	assert.equal(find('h3:contains("Create new trip")').length, 1);
+    });
+  });
+});
