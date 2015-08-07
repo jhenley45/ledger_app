@@ -29,7 +29,8 @@ module.exports = function(app) {
   tripsRouter.get('/:id', function(req, res) {
     res.send({
       'trips': {
-        id: req.params.id
+        id: req.params.id,
+        title: "Trip " + req.params.id
       }
     });
   });

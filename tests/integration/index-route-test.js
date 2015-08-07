@@ -32,3 +32,11 @@ test('Should display the title of each trip in a link', function(assert) {
 		assert.equal(find('a:contains("Trip 3")').length, 1);
   });
 });
+
+test('Should be able to go to a trip page', function(assert) {
+  visit('/').then(function() {
+    click('a:contains("Trip 1")').then(function() {
+      assert.equal(find('h3').text(), 'Trip 1');
+    });
+  });
+});
