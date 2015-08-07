@@ -6,6 +6,8 @@ var app = new EmberApp({
 
 });
 
+app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
+app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
