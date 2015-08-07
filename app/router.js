@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+	this.resource('trips', function() {
+		this.route('show', {path: ':trip_id'});
+	});
 });
 
 export default Router;
