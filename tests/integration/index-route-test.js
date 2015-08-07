@@ -25,11 +25,10 @@ test('Should display a list of trips', function(assert) {
   });
 });
 
-test('Should display the title of each trip', function(assert) {
+test('Should display the title of each trip in a link', function(assert) {
   visit('/').then(function() {
-		var list = find('li');
-		$.each(list, function(i, v) {
-			assert.equal(v.innerHTML, "Trip " + (i + 1).toString());
-		});
+		assert.equal(find('a:contains("Trip 1")').length, 1);
+		assert.equal(find('a:contains("Trip 2")').length, 1);
+		assert.equal(find('a:contains("Trip 3")').length, 1);
   });
 });
