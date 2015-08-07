@@ -33,10 +33,16 @@ test('Should display the title of each trip in a link', function(assert) {
   });
 });
 
-test('Should be able to go to a trip page', function(assert) {
+test('Should be able to go to a trip page from the index route', function(assert) {
   visit('/').then(function() {
     click('a:contains("Trip 1")').then(function() {
       assert.equal(find('h3').text(), 'Trip 1');
     });
+  });
+});
+
+test('Should be able visit a speaker page', function(assert) {
+  visit('/trips/1').then(function() {
+    assert.equal(find('h3').text(), 'Trip 1');
   });
 });
