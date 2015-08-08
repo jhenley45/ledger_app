@@ -1,0 +1,13 @@
+<h3>All Trips</h3>
+
+<ul>
+	{{#each}}
+		<li>{{link-to title 'trip' this}}</li>
+	{{/each}}
+</ul>
+
+<div>
+	{{link-to 'Create New Trip' 'trips.new'}}
+</div>
+
+
