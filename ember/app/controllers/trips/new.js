@@ -4,7 +4,7 @@ export default Ember.ObjectController.extend({
 
 	actions: {
 		createTrip : function() {
-			debugger
+
 		}
 	}
 });
