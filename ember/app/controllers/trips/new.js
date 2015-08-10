@@ -9,11 +9,21 @@ export default Ember.Controller.extend({
 			// clear any lingering form errors
 			this.set('formError', undefined);
 
+			var _this = this;
 			var title = this.get('title');
 
 			if (!title || title.length < 1) {
 				this.set('formError', 'Title field cannot be empty');
 				return;
+			} else {
+				var trip = this.store.createRecord('trip', {
+					title: title
+				});
+				trip.save().then(function(trip) {
+					_this.transitionToRoute('trip', trip);
+				}, function() {
+					// EPIC FAIL
+				});
 			}
 		}
 	}

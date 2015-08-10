@@ -18,12 +18,17 @@ module.exports = function(app) {
           title: 'Trip 3'
         }
       ]
-
     });
   });
 
+
   tripsRouter.post('/', function(req, res) {
-    res.status(201).end();
+    res.send({
+      'trips': {
+        id: 4,
+        title: "Trip 4"
+      }
+    });
   });
 
   tripsRouter.get('/:id', function(req, res) {
