@@ -32,4 +32,8 @@ test('Should show an error message when the user submits the form with an empty 
   });
 });
 
+test('Should have a "Back" link', function(assert) {
+  assert.equal(find('a:contains("Back")').length, 1);
+});
+
 
