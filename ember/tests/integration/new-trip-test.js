@@ -28,7 +28,7 @@ test('Should have a submit button', function(assert) {
 
 test('Should show an error message when the user submits the form with an empty title', function(assert) {
   click(find('button:contains("Submit")')).then(function() {
-    assert.equal(find('div.error-message:contains("Title cannot be empty")').length, 1);
+    assert.equal(find('p.error-message:contains("Title field cannot be empty")').length, 1);
   });
 });
 

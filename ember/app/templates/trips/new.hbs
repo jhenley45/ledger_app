@@ -5,4 +5,10 @@
 		Title {{input type="text" class="form-control" id="trip-title" value=title size="60" placeholder='Trip Title'}}
 	</div>
 	<button {{action "createTrip"}}>Submit</button>
+
+	{{#if formError}}
+		<p class="error-message">Error: {{formError}}</p>
+	{{/if}}
+
 </div>
+{{content.title}}
