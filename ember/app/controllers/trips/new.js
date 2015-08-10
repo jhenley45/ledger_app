@@ -22,8 +22,12 @@ export default Ember.Controller.extend({
 				trip.save().then(function(trip) {
 					_this.send('flashMessage', 'New trip successfully created', true);
 					_this.transitionToRoute('trip', trip);
-				}, function() {
-					// EPIC FAIL
+				}, function(error) {
+					if (error.responseJSON && error.responseJSON.error) {
+						_this.send('flashMessage', error.responseJSON.error, false);
+					} else {
+						_this.send('flashMessage', 'An error occurred while processing your request', false);
+					}
 				});
 			}
 		}
