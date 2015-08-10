@@ -20,6 +20,7 @@ export default Ember.Controller.extend({
 					title: title
 				});
 				trip.save().then(function(trip) {
+					_this.send('flashMessage', 'New trip successfully created', true);
 					_this.transitionToRoute('trip', trip);
 				}, function() {
 					// EPIC FAIL

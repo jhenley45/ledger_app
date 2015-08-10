@@ -1,3 +1,7 @@
 <h2 id="title">Ledger App</h2>
 
+{{#if flashMessage}}
+	{{flash-message message=flashMessage isSuccess=flashStatus}}
+{{/if}}
+
 {{outlet}}
