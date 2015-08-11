@@ -6,8 +6,8 @@ export default Ember.FlashMessageComponent = Ember.Component.extend({
   	var _this = this;
     this.$().fadeOut(time);
 
-    setTimeout(function() {
-    	_this.get('parentView').get('controller').set('flashMessage', undefined);
-    }, time)
+    Ember.run.later(_this, function() {
+      _this.get('parentView').get('controller').set('flashMessage', undefined);
+    }, time);
   }
 });
