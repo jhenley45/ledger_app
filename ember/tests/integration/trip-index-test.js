@@ -4,7 +4,7 @@ import startApp from '../helpers/start-app';
 
 var App;
 
-module('Integration - Trips Page', {
+module('Integration - Trip index Page', {
   beforeEach: function() {
     App = startApp();
     visit('/trips/1');
@@ -16,4 +16,8 @@ module('Integration - Trips Page', {
 
 test('Should have a title of "Trip 1"', function(assert) {
   assert.equal(find('h3').text(), 'Trip 1');
+});
+
+test('Should display a message if there are no existing payments for a trip', function(assert) {
+  assert.equal(find('div.warning-block:contains("There are currently no payments for this trip")').length, 1);
 });
