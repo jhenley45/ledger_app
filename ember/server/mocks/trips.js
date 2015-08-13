@@ -31,6 +31,36 @@ module.exports = function(app) {
     });
   });
 
+  tripsRouter.get('/2', function(req, res) {
+    res.send({
+      'trips': {
+        id: 2,
+        title: "Trip 2",
+        payment_ids: [1, 2, 3]
+      },
+      'payments': [
+        {
+          id: 1,
+          description: 'Test Payment 1',
+          amount: 40,
+          trip_id: 1
+        },
+        {
+          id: 2,
+          description: 'Test Payment 2',
+          amount: 50,
+          trip_id: 1
+        },
+        {
+          id: 3,
+          description: 'Test Payment 3',
+          amount: 30,
+          trip_id: 1
+        }
+      ]
+    });
+  });
+
   tripsRouter.get('/:id', function(req, res) {
     res.send({
       'trips': {

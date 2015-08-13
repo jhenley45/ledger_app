@@ -1,6 +1,15 @@
 <h3>{{title}}</h3>
 
-
-<div class="warning-block">
-	There are currently no payments for this trip
-</div>
+{{#if payments.length}}
+	<ul>
+	{{#each payment in payments}}
+		<li class="payment">
+			{{payment.description}}
+		</li>
+	{{/each}}
+	</ul>
+{{else}}
+	<div class="warning-block">
+		There are currently no payments for this trip
+	</div>
+{{/if}}
