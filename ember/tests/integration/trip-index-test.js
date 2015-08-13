@@ -27,3 +27,7 @@ test('Should display a list of payments for a trip when there are payments', fun
 		assert.equal(find('li.payment').length, 3);
 	});
 });
+
+test('Should have a button to allow the user to create a new payment for the trip', function(assert) {
+  assert.equal(find('button.standard-button:contains("Add a new payment")').length, 1);
+});
