@@ -23,11 +23,9 @@ test('Should have a button to allow the user to create a new payment for the tri
   assert.equal(find('button.standard-button:contains("Add payment")').length, 1);
 });
 
-// test('Should display a form when the user clicks on the new payment button', function(assert) {
-//   click(find('button.standard-button:contains("Add a new payment")')).then(function() {
-//   	assert.equal(find('div.form-group').length, 2);
-//   });
-// });
+test('Should display a form with input fields for the new payment', function(assert) {
+  assert.equal(find('div.form-group').length, 2);
+});
 
 // test('Should change the text of the link once the user has clicked on it', function(assert) {
 //   click(find('button.standard-button:contains("Add a new payment")')).then(function() {
