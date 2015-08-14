@@ -29,11 +29,11 @@ test('Should display a list of payments for a trip when there are payments', fun
 });
 
 test('Should have a button to allow the user to create a new payment for the trip', function(assert) {
-  assert.equal(find('button.standard-button:contains("Add a new payment")').length, 1);
+  assert.equal(find('a:contains("Add a new payment")').length, 1);
 });
 
 test('Should display a form when the user clicks on the new payment button', function(assert) {
-  click(find('button.standard-button:contains("Add a new payment")')).then(function() {
+  click(find('a:contains("Add a new payment")')).then(function() {
   	assert.equal(find('div.form-group').length, 2);
   });
 });

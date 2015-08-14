@@ -2,12 +2,19 @@
 
 <ul>
 	{{#each}}
-		<li>{{link-to title 'trip' this}}</li>
+		<li>
+			{{#link-to 'trip' this}}
+			  {{title}}
+			{{/link-to}}
+		</li>
+
 	{{/each}}
 </ul>
 
 <div>
-	{{link-to 'Create New Trip' 'trips.new'}}
+	{{#link-to 'trips.new'}}
+	  Create New Trip
+	{{/link-to}}
 </div>
 
 
