@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			var _this = this;
 			var title = this.get('title');
 
-			if (!title || title.length < 1) {
+			if (!title || title.length < 1 || $.trim(title) === "") {
 				this.set('formError', 'Title field cannot be empty');
 				return;
 			} else {

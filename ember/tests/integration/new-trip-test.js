@@ -32,6 +32,14 @@ test('Should show an error message when the user submits the form with an empty 
   });
 });
 
+test('Should show an error message when the user submits a title of just whitespace', function(assert) {
+  fillIn(find('input#trip-title'), '   ').then(function() {
+    click(find('button:contains("Submit")')).then(function() {
+      assert.equal(find('p.error-message:contains("Title field cannot be empty")').length, 1);
+    });
+  });
+});
+
 test('Should have a "Back" link', function(assert) {
   assert.equal(find('a:contains("Back")').length, 1);
 });
