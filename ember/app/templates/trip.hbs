@@ -14,8 +14,9 @@
 	</div>
 {{/if}}
 
-{{#link-to 'payments.new'}}
+{{!-- {{#link-to 'payments.new'}}
   Add a new payment
-{{/link-to}}
+{{/link-to}} --}}
+<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
 
 {{outlet}}
