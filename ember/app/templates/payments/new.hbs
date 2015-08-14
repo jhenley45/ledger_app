@@ -1,3 +1,5 @@
+<h4>New Payment</h4>
+
 <div class='col-md-6'>
 	<div class="form-group">
 		Description: {{input type="text" class="form-control" value=description size="60"}}
@@ -7,3 +9,5 @@
 		Amount: {{input type="text" class="form-control" value=amount size="60"}}
 	</div>
 </div>
+
+<button {{action "addPaymentToTrip"}} class="standard-button">Add payment</button>
