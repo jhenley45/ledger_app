@@ -34,6 +34,22 @@ test('Should display an error message when no amount is provided.', function(ass
   });
 });
 
+test('Should display an error message when amount is not an integer.', function(assert) {
+  fillIn(find('input#description'), 'Test Payment 4');
+  fillIn(find('input#amount'), 'Monayyyy');
+  click(find('button:contains("Add payment")')).then(function() {
+    assert.equal(find('p.error-message:contains("Amount value must be a number")').length, 1);
+  });
+});
+
+test('Should display an error message when empty string is entered.', function(assert) {
+  fillIn(find('input#description'), 'Test Payment 4');
+  fillIn(find('input#amount'), '  ');
+  click(find('button:contains("Add payment")')).then(function() {
+    assert.equal(find('p.error-message:contains("Amount field cannot be empty")').length, 1);
+  });
+});
+
 // test('Should add the payment to the list of existing trip payments after it is created.', function(assert) {
 //   fillIn(find('input#description'), 'Test Payment 4');
 //   fillIn(find('input#amount'), '230');
