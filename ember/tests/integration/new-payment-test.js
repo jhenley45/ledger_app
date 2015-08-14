@@ -27,8 +27,17 @@ test('Should display a form with input fields for the new payment', function(ass
   assert.equal(find('div.form-group').length, 2);
 });
 
-// test('Should change the text of the link once the user has clicked on it', function(assert) {
-//   click(find('button.standard-button:contains("Add a new payment")')).then(function() {
-//   	assert.equal(find('button.standard-button:contains("Cancel")').length, 1);
+test('Should display an error message when no amount is provided.', function(assert) {
+  fillIn(find('input#description'), 'Test Payment 4');
+  click(find('button:contains("Add payment")')).then(function() {
+    assert.equal(find('p.error-message:contains("Amount field cannot be empty")').length, 1);
+  });
+});
+
+// test('Should add the payment to the list of existing trip payments after it is created.', function(assert) {
+//   fillIn(find('input#description'), 'Test Payment 4');
+//   fillIn(find('input#amount'), '230');
+//   click(find('button:contains("Add payment")')).then(function() {
+//     assert.equal(find('div.flash-success').length, 1);
 //   });
 // });

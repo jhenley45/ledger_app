@@ -2,12 +2,16 @@
 
 <div class='col-md-6'>
 	<div class="form-group">
-		Description: {{input type="text" class="form-control" value=description size="60"}}
+		Description: {{input type="text" class="form-control" id='description' value=description size="60" placeholder="Description"}}
 	</div>
 
 	<div class="form-group">
-		Amount: {{input type="text" class="form-control" value=amount size="60"}}
+		Amount: {{input type="text" class="form-control" id='amount' value=amount size="60" placeholder="Amount"}}
 	</div>
 </div>
 
 <button {{action "addPaymentToTrip"}} class="standard-button">Add payment</button>
+
+{{#if formError}}
+	<p class="error-message">Error: {{formError}}</p>
+{{/if}}
