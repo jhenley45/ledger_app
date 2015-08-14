@@ -4,7 +4,7 @@ import startApp from '../helpers/start-app';
 
 var App;
 
-module('Integration - Trip index Page', {
+module('Integration - Trip Page', {
   beforeEach: function() {
     App = startApp();
     visit('/trips/1');

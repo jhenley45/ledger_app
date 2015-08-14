@@ -1,1 +1,31 @@
+<h3>{{title}}</h3>
+
+{{#if payments.length}}
+	<ul>
+	{{#each payment in payments}}
+		<li class="payment">
+			{{payment.description}}
+		</li>
+	{{/each}}
+	</ul>
+{{else}}
+	<div class="warning-block">
+		There are currently no payments for this trip
+	</div>
+{{/if}}
+
+<button {{action "toggleForm"}} class="standard-button">Add a new payment</button>
+
+{{#if showNewPaymentForm}}
+	<div class='col-md-6'>
+		<div class="form-group">
+			Description: {{input type="text" class="form-control" value=description size="60"}}
+		</div>
+
+		<div class="form-group">
+			Amount: {{input type="text" class="form-control" value=amount size="60"}}
+		</div>
+	</div>
+{{/if}}
+
 {{outlet}}

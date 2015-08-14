@@ -40,6 +40,12 @@ test('Should be able visit a trips page', function(assert) {
   });
 });
 
+test('Should display a list of payments on the trips page after transition', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('li.payment').length, 3);
+  });
+});
+
 test('Should be able to go to new trip page from index route', function(assert) {
   click(find('a:contains("Create New Trip")')).then(function() {
   	assert.equal(find('h3:contains("Create new trip")').length, 1);
