@@ -36,7 +36,8 @@ export default Ember.Controller.extend({
 					_this.send('flashMessage', 'New payment successfully created', true);
 					_this.transitionToRoute('trip', trip);
 				}, function() {
-					// fail
+					// need to destroy payment object
+					_this.send('flashMessage', 'An error occurred while processing your request', false);
 				});
 			}
 		}
