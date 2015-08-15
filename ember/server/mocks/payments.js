@@ -27,5 +27,16 @@ module.exports = function(app) {
     });
   });
 
+  paymentsRouter.post('/', function(req, res) {
+    res.send({
+      'payments': {
+        id: 4,
+        description: 'Test Payment 4',
+        amount: 230,
+        trip_id: 2
+      }
+    });
+  });
+
   app.use('/api/payments', paymentsRouter);
 };
