@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 					trip: trip
 				});
 				payment.save().then(function(payment) {
-					// success
+					_this.transitionToRoute('trip', trip);
 				}, function(error) {
 					// fail
 				})

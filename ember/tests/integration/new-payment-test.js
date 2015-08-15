@@ -57,3 +57,11 @@ test('Should add the payment to the list of existing trip payments after it is c
     assert.equal(find('li.payment').length, 4);
   });
 });
+
+test('Should redirect the user to the trip route after payment has been added.', function(assert) {
+  fillIn(find('input#description'), 'Test Payment 4');
+  fillIn(find('input#amount'), '230');
+  click(find('button:contains("Add payment")')).then(function() {
+    assert.equal(find('button.standard-button:contains("Add a new payment")').length, 1);
+  });
+});
