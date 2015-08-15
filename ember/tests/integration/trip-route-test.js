@@ -43,3 +43,9 @@ test('Should change the text of the link once the user has clicked on it', funct
   	assert.equal(find('button.standard-button:contains("Cancel")').length, 1);
   });
 });
+
+test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('button.standard-button:contains("Remove payment")').length, 3);
+  });
+});

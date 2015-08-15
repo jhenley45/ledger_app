@@ -5,6 +5,9 @@
 	{{#each payment in payments}}
 		<li class="payment">
 			{{payment.description}}
+			<span>
+				<button {{action "removePayment"}} class="standard-button">Remove payment</button>
+			</span>
 		</li>
 	{{/each}}
 	</ul>
