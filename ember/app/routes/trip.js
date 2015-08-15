@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   setupController : function(controller, model) {
   	var _this = controller;
   	this.store.fetch('trip', model.get('id')).then(function(data) {
-  		_this.set('model', data)
-  	})
+  		_this.set('model', data);
+  	});
   }
 });

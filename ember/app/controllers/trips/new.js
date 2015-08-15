@@ -1,4 +1,5 @@
 import Ember from "ember";
+var $ = Ember.$;
 
 // Just use Controller not ObjectController
 // http://stackoverflow.com/questions/16329233/emberjs-cross-controller-binding-failing-because-content-doesnt-exist-yet/16329411#16329411

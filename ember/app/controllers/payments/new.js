@@ -1,4 +1,5 @@
 import Ember from "ember";
+var $ = Ember.$;
 
 // Just use Controller not ObjectController
 export default Ember.Controller.extend({
@@ -29,14 +30,14 @@ export default Ember.Controller.extend({
 					amount: amount,
 					trip: trip
 				});
-				payment.save().then(function(payment) {
+				payment.save().then(function() {
 					_this.set('description', undefined);
 					_this.set('amount', undefined);
 					_this.send('flashMessage', 'New payment successfully created', true);
 					_this.transitionToRoute('trip', trip);
-				}, function(error) {
+				}, function() {
 					// fail
-				})
+				});
 			}
 		}
 	}
