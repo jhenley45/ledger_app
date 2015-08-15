@@ -6,7 +6,7 @@
 		<li class="payment">
 			{{payment.description}}
 			<span>
-				<button {{action "removePayment"}} class="standard-button">Remove payment</button>
+				<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
 			</span>
 		</li>
 	{{/each}}
