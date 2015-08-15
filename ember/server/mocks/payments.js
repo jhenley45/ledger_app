@@ -38,5 +38,16 @@ module.exports = function(app) {
     });
   });
 
+  paymentsRouter.delete('/:id', function(req, res) {
+    res.send({
+      'payments': {
+        id: req.params.id,
+        description: 'Test Payment 1',
+        amount: 40,
+        trip_id: 2
+      }
+    });
+  });
+
   app.use('/api/payments', paymentsRouter);
 };

@@ -13,6 +13,14 @@ export default Ember.ObjectController.extend({
 			} else {
 				this.transitionToRoute('trip');
 			}
+		},
+		removePayment: function(payment) {
+			var _this = this;
+			payment.destroyRecord().then(function() {
+				_this.send('flashMessage', 'Payment successfully deleted', true);
+			}, function() {
+				// fail
+			})
 		}
 	},
 
