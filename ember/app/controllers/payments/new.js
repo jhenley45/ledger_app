@@ -30,6 +30,9 @@ export default Ember.Controller.extend({
 					trip: trip
 				});
 				payment.save().then(function(payment) {
+					_this.set('description', undefined);
+					_this.set('amount', undefined);
+					_this.send('flashMessage', 'New payment successfully created', true);
 					_this.transitionToRoute('trip', trip);
 				}, function(error) {
 					// fail
