@@ -79,7 +79,7 @@ module.exports = function(app) {
   });
 
   tripsRouter.delete('/:id', function(req, res) {
-    res.status(204).end();
+    res.send({});
   });
 
   app.use('/api/trips', tripsRouter);

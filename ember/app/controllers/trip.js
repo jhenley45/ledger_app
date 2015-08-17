@@ -23,7 +23,14 @@ export default Ember.ObjectController.extend({
 			});
 		},
 		deleteTrip: function(trip) {
-			this.transitionToRoute('trips');
+			var _this = this;
+
+			trip.destroyRecord().then(function() {
+				_this.send('flashMessage', 'Your trip has been successfully deleted', true);
+				_this.transitionToRoute('trips');
+			}, function() {
+				_this.send('flashMessage', 'An error occurred while processing your request', true);
+			});
 		}
 	},
 

@@ -71,3 +71,11 @@ test('Should redirect the user to the trips page when delete trip is clicked', f
   });
 });
 
+// Need to figure this out. When we transition back to trips route the trip still shows
+// bc we re-run the model hook of the trips route, which hits mock server and returns 3 trips.
+// test('Should delete the selected trip when delete trip is clicked', function(assert) {
+//   click((find('button.standard-button:contains("Delete trip")'))).then(function() {
+//     assert.equal(find('li').length, 2);
+//   });
+// });
+
