@@ -1,33 +1,43 @@
 <h3>{{title}}</h3>
 
-{{#if payments.length}}
+<div class="col-md-6">
+
+	<h4>Payments</h3>
+
+	{{#if payments.length}}
+		<ul>
+		{{#each payment in payments}}
+			<li class="payment">
+				{{payment.description}}
+				<span>
+					<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
+				</span>
+			</li>
+		{{/each}}
+		</ul>
+	{{else}}
+		<div class="warning-block">
+			There are currently no payments for this trip
+		</div>
+	{{/if}}
+	<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
+</div>
+
+<div class="col-md-6">
+
+	<h4 class="trip-members">Members of this trip</h3>
+
 	<ul>
-	{{#each payment in payments}}
-		<li class="payment">
-			{{payment.description}}
-			<span>
-				<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
-			</span>
-		</li>
-	{{/each}}
+		<li class="trip-organizer">{{organizer.username}} (organizer)</li>
+		{{#each member in membersWithoutOrganizer}}
+			<li class="trip-member">{{member.username}}</li>
+		{{/each}}
 	</ul>
-{{else}}
-	<div class="warning-block">
-		There are currently no payments for this trip
-	</div>
-{{/if}}
+</div>
 
-<h4 class="trip-members">Members of this trip</h3>
-
-<ul>
-	<li class="trip-organizer">{{organizer.username}} (organizer)</li>
-	{{#each member in membersWithoutOrganizer}}
-		<li class="trip-member">{{member.username}}</li>
-	{{/each}}
-</ul>
 {{!-- sidebar prolly --}}
 <button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
-<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
+
 
 {{outlet}}
 
