@@ -44,6 +44,8 @@ test('Should change the text of the link once the user has clicked on it', funct
   });
 });
 
+
+// DELETE PAYMENT
 test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
   visit('/trips/2').then(function() {
     assert.equal(find('button.standard-button:contains("Remove payment")').length, 3);
@@ -57,3 +59,10 @@ test('Should remove the payment from the list of trips once the user has clicked
     });
   });
 });
+
+// DELETE TRIP
+
+test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
+  assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
+});
+

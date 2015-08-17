@@ -17,9 +17,9 @@
 	</div>
 {{/if}}
 
-{{!-- {{#link-to 'payments.new'}}
-  Add a new payment
-{{/link-to}} --}}
+
+{{!-- sidebar prolly --}}
+<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
 <button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
 
 {{outlet}}
