@@ -90,3 +90,9 @@ test('Should list the members of the trip', function(assert) {
     assert.equal(find('li.trip-member').length, 3);
   });
 });
+
+test('Should designate the owner of the trip', function(assert) {
+  assert.equal(find('li.trip-owner:contains("(owner)")').length, 1);
+});
+
+
