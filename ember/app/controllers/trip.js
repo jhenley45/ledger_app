@@ -19,7 +19,7 @@ export default Ember.ObjectController.extend({
 			payment.destroyRecord().then(function() {
 				_this.send('flashMessage', 'Payment successfully deleted', true);
 			}, function() {
-				// fail
+				_this.send('flashMessage', 'An error occurred while processing your request', false);
 			})
 		}
 	},
