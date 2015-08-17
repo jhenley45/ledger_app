@@ -1,7 +1,9 @@
-<h2 id="title">Ledger App</h2>
+<div class="container-fluid">
+	<h2 id="title">Ledger App</h2>
 
-{{#if flashMessage}}
-	{{flash-message message=flashMessage isSuccess=flashStatus}}
-{{/if}}
+	{{#if flashMessage}}
+		{{flash-message message=flashMessage isSuccess=flashStatus}}
+	{{/if}}
 
-{{outlet}}
+	{{outlet}}
+</div>

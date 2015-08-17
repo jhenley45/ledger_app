@@ -1,5 +1,20 @@
 <h3>{{title}}</h3>
 
+<div class="col-md-3 pull-right">
+
+	<h4 class="trip-members">Members of this trip</h3>
+
+	<ul>
+		<li class="trip-organizer">{{organizer.username}} (organizer)</li>
+		{{#each member in membersWithoutOrganizer}}
+			<li class="trip-member">{{member.username}}</li>
+		{{/each}}
+	</ul>
+
+	{{!-- decide where to go --}}
+	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+</div>
+
 <div class="col-md-6">
 
 	<h4>Payments</h3>
@@ -21,24 +36,8 @@
 		</div>
 	{{/if}}
 	<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
+
+
+	{{outlet}}
+
 </div>
-
-<div class="col-md-6">
-
-	<h4 class="trip-members">Members of this trip</h3>
-
-	<ul>
-		<li class="trip-organizer">{{organizer.username}} (organizer)</li>
-		{{#each member in membersWithoutOrganizer}}
-			<li class="trip-member">{{member.username}}</li>
-		{{/each}}
-	</ul>
-</div>
-
-{{!-- sidebar prolly --}}
-<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
-
-
-{{outlet}}
-
-
