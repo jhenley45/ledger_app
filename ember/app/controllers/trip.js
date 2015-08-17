@@ -20,7 +20,7 @@ export default Ember.ObjectController.extend({
 				_this.send('flashMessage', 'Payment successfully deleted', true);
 			}, function() {
 				_this.send('flashMessage', 'An error occurred while processing your request', false);
-			})
+			});
 		}
 	},
 

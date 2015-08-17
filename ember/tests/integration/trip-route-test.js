@@ -54,6 +54,6 @@ test('Should remove the payment from the list of trips once the user has clicked
   visit('/trips/2').then(function() {
     click(find('button.standard-button:contains("Remove payment")').first()).then(function() {
       assert.equal(find('li.payment').length, 2);
-    })
+    });
   });
 });
