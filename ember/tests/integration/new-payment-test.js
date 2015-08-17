@@ -15,7 +15,7 @@ module('Integration - New Payment Page', {
 });
 
 test('Should have a title of "New Payment"', function(assert) {
-  assert.equal(find('h4').text(), 'New Payment');
+  assert.equal(find('h4.new-payment').text(), 'New Payment');
 });
 
 

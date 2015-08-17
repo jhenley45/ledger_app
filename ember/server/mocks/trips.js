@@ -37,7 +37,8 @@ module.exports = function(app) {
         id: 2,
         title: "Trip 2",
         payment_ids: [1, 2, 3],
-        member_ids: [4, 7, 8]
+        member_ids: [4, 7, 8],
+        organizer_id: 4
       },
       'payments': [
         {

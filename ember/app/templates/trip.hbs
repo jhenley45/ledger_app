@@ -20,8 +20,8 @@
 <h4 class="trip-members">Members of this trip</h3>
 
 <ul>
-	<li class="trip-owner">{{tripOwner.username}} (owner)</li>
-	{{#each member in members}}
+	<li class="trip-organizer">{{organizer.username}} (organizer)</li>
+	{{#each member in membersWithoutOrganizer}}
 		<li class="trip-member">{{member.username}}</li>
 	{{/each}}
 </ul>

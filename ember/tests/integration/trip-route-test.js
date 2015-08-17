@@ -87,12 +87,18 @@ test('Should have a section with the title "Members of this trip"', function(ass
 
 test('Should list the members of the trip', function(assert) {
   visit('/trips/2').then(function() {
-    assert.equal(find('li.trip-member').length, 3);
+    assert.equal(find('li.trip-member').length, 2);
   });
 });
 
-test('Should designate the owner of the trip', function(assert) {
-  assert.equal(find('li.trip-owner:contains("(owner)")').length, 1);
+test('Should designate the organizer of the trip', function(assert) {
+  assert.equal(find('li.trip-organizer:contains("(organizer)")').length, 1);
+});
+
+test('Should display the username of the organizer of the trip', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('li.trip-organizer:contains("test_user1")').length, 1);
+  });
 });
 
 
