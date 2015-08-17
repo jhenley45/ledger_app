@@ -79,3 +79,14 @@ test('Should redirect the user to the trips page when delete trip is clicked', f
 //   });
 // });
 
+
+// TRIP USERS
+test('Should have a section with the title "Members of this trip"', function(assert) {
+  assert.equal(find('h4.trip-members:contains("Members of this trip")').length, 1);
+});
+
+test('Should list the members of the trip', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('li.trip-member').length, 3);
+  });
+});

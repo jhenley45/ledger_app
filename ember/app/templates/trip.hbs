@@ -17,9 +17,17 @@
 	</div>
 {{/if}}
 
+<h4 class="trip-members">Members of this trip</h3>
 
+<ul>
+	{{#each member in members}}
+		<li class="trip-member">{{member.username}}</li>
+	{{/each}}
+</ul>
 {{!-- sidebar prolly --}}
 <button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
 <button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
 
 {{outlet}}
+
+
