@@ -61,8 +61,13 @@ test('Should remove the payment from the list of trips once the user has clicked
 });
 
 // DELETE TRIP
-
 test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
   assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
+});
+
+test('Should redirect the user to the trips page when delete trip is clicked', function(assert) {
+  click((find('button.standard-button:contains("Delete trip")'))).then(function() {
+    assert.equal(find('h3:contains("All Trips")').length, 1);
+  });
 });
 
