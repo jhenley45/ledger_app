@@ -11,7 +11,7 @@
 		{{/each}}
 	</ul>
 
-	<button {{action "toggleAddUser"}} class="standard-button">Add new user</button>
+	<button {{action "toggleAddUser"}} class="standard-button">{{addNewUserButtonText}}</button>
 
 	{{#if isAddUserVisible}}
 		<div class="form-group">

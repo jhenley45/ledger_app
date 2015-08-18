@@ -47,5 +47,13 @@ export default Ember.ObjectController.extend({
 		} else {
 			return 'Cancel';
 		}
-	}.property('isTripRoute')
+	}.property('isTripRoute'),
+
+	addNewUserButtonText : function() {
+		if (this.get('isAddUserVisible')) {
+			return 'Hide Form';
+		} else {
+			return 'Add new user';
+		}
+	}.property('isAddUserVisible')
 });

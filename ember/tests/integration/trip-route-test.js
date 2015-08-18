@@ -111,4 +111,9 @@ test('Should show a form to add a new user when add new user button is clicked',
   });
 });
 
+test('Should change the text of the button when add new user button is clicked', function(assert) {
+  click((find('button.standard-button:contains("Add new user")'))).then(function() {
+    assert.equal(find('button.standard-button:contains("Hide form")').length, 1);
+  });
+});
 
