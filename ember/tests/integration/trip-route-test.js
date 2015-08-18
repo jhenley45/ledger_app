@@ -101,4 +101,8 @@ test('Should display the username of the organizer of the trip', function(assert
   });
 });
 
+test('Should have a button to allow you to add a user to a trip', function(assert) {
+  assert.equal(find('button.standard-button:contains("Add new user")').length, 1);
+});
+
 
