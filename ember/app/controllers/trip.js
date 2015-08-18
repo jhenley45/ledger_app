@@ -31,6 +31,9 @@ export default Ember.ObjectController.extend({
 			}, function() {
 				_this.send('flashMessage', 'An error occurred while processing your request', true);
 			});
+		},
+		toggleAddUser: function() {
+			this.set('isAddUserVisible', !this.get('isAddUserVisible'));
 		}
 	},
 

@@ -105,4 +105,10 @@ test('Should have a button to allow you to add a user to a trip', function(asser
   assert.equal(find('button.standard-button:contains("Add new user")').length, 1);
 });
 
+test('Should show a form to add a new user when add new user button is clicked', function(assert) {
+  click((find('button.standard-button:contains("Add new user")'))).then(function() {
+    assert.equal(find('button.standard-button:contains("Add user")').length, 1);
+  });
+});
+
 

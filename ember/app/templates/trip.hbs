@@ -11,7 +11,15 @@
 		{{/each}}
 	</ul>
 
-	<button {{action "toggleAddUser" this}} class="standard-button">Add new user</button>
+	<button {{action "toggleAddUser"}} class="standard-button">Add new user</button>
+
+	{{#if isAddUserVisible}}
+		<div class="form-group">
+			Amount: {{input type="text" class="form-control" id='user-search' value=userSearch size="60" placeholder="Search for users"}}
+		</div>
+
+		<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
+	{{/if}}
 
 	{{!-- decide where to go --}}
 	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
