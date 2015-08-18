@@ -117,3 +117,11 @@ test('Should change the text of the button when add new user button is clicked',
   });
 });
 
+test('Begins to show a list of suggestions once the user enters text', function(assert) {
+  click((find('button.standard-button:contains("Add new user")'))).then(function() {
+   fillIn(find('input.user-search'), 's').then(function() {
+    // check for existence of typeahead dropdown
+   });
+  });
+});
+
