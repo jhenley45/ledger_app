@@ -53,6 +53,10 @@ export default Ember.ObjectController.extend({
       	});
       }, function() {
       	_this.send('flashMessage', 'An error occurred while processing your request', false);
+      }).always(function() {
+      	Ember.run(function() {
+      		_this.set('isAddUserVisible', false);
+      	})
       });
 		}
 	},

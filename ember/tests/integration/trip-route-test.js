@@ -129,5 +129,16 @@ test('Adds a new user to the list when the user clicks "Add user"', function(ass
   });
 });
 
+test('Hides the forms after a user is successfully added', function(assert) {
+  visit('/trips/2').then(function() {
+    click(find('button.standard-button:contains("Add new user")')).then(function() {
+     fillIn(find('input#add-user'), 'test_user5').then(function() {
+      click(find('button.standard-button:contains("Add user")')).then(function() {
+        assert.equal(find('button.standard-button:contains("Add user")').length, 0);
+      });
+     });
+    });
+  });
+});
 
 
