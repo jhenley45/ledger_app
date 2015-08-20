@@ -1,5 +1,5 @@
 import Ember from "ember";
-// var $ = Ember.$;
+var $ = Ember.$;
 
 export default Ember.ObjectController.extend({
 
@@ -30,7 +30,7 @@ export default Ember.ObjectController.extend({
 				_this.send('flashMessage', 'Your trip has been successfully deleted', true);
 				_this.transitionToRoute('trips');
 			}, function() {
-				_this.send('flashMessage', 'An error occurred while processing your request', true);
+				_this.send('flashMessage', 'An error occurred while processing your request', false);
 			});
 		},
 		toggleAddUser: function() {
@@ -49,7 +49,8 @@ export default Ember.ObjectController.extend({
       	Ember.run(function() {
       		var newMember = _this.store.createRecord('member', response.user);
       		trip.get('members').addObject(newMember);
-      	})
+      		_this.send('flashMessage', 'Member successfully added!', true);
+      	});
       }, function() {
       	// fail
       });
