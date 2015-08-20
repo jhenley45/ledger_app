@@ -52,7 +52,7 @@ export default Ember.ObjectController.extend({
       		_this.send('flashMessage', 'Member successfully added!', true);
       	});
       }, function() {
-      	// fail
+      	_this.send('flashMessage', 'An error occurred while processing your request', false);
       });
 		}
 	},
