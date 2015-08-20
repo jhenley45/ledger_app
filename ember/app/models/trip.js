@@ -4,10 +4,10 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   payments: DS.hasMany('payment'),
   members: DS.hasMany('member'),
-  organizer_id: DS.attr('number'),
+  organizerId: DS.attr('number'),
   organizer: function() {
-  	return this.get('members').findBy('id', String(this.get('organizer_id')));
-  }.property('organizer_id'),
+  	return this.get('members').findBy('id', String(this.get('organizerId')));
+  }.property('organizerId'),
   membersWithoutOrganizer: function() {
   	var _this = this;
   	return this.get('members').filter(function(member) {

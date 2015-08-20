@@ -1,5 +1,5 @@
 import Ember from "ember";
-var $ = Ember.$;
+// var $ = Ember.$;
 
 export default Ember.ObjectController.extend({
 
@@ -46,8 +46,10 @@ export default Ember.ObjectController.extend({
         url: "/api/trip_users",
         data: { username: username, trip_id: trip.get('id') }
       }).then(function(response) {
-      	var newMember = _this.store.createRecord('member', response.user);
-      	trip.get('members').addObject(newMember);
+      	Ember.run(function() {
+      		var newMember = _this.store.createRecord('member', response.user);
+      		trip.get('members').addObject(newMember);
+      	})
       }, function() {
       	// fail
       });
