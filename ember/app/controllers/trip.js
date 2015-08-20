@@ -1,4 +1,5 @@
 import Ember from "ember";
+var $ = Ember.$;
 
 export default Ember.ObjectController.extend({
 
@@ -46,10 +47,10 @@ export default Ember.ObjectController.extend({
         data: { username: username, trip_id: trip.get('id') }
       }).then(function(response) {
       	var newMember = _this.store.createRecord('member', response.user);
-      	trip.get('members').pushObject(newMember);
+      	trip.get('members').addObject(newMember);
       }, function() {
       	// fail
-      })
+      });
 		}
 	},
 
