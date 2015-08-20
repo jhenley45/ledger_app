@@ -34,6 +34,22 @@ export default Ember.ObjectController.extend({
 		},
 		toggleAddUser: function() {
 			this.set('isAddUserVisible', !this.get('isAddUserVisible'));
+		},
+		addUserToTrip: function() {
+			var username = this.get('addUser');
+			var trip = this.get('model');
+			var _this = this;
+
+			$.ajax({
+        type: "POST",
+        url: "/api/trip_users",
+        data: { username: username, trip_id: trip.get('id') }
+      }).then(function(response) {
+      	var newMember = _this.store.createRecord('member', response.user);
+      	trip.get('members').pushObject(newMember);
+      }, function() {
+      	// fail
+      })
 		}
 	},
 
@@ -51,7 +67,7 @@ export default Ember.ObjectController.extend({
 
 	addNewUserButtonText : function() {
 		if (this.get('isAddUserVisible')) {
-			return 'Hide Form';
+			return 'Hide form';
 		} else {
 			return 'Add new user';
 		}

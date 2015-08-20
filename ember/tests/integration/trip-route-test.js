@@ -117,10 +117,12 @@ test('Should change the text of the button when add new user button is clicked',
   });
 });
 
-test('Begins to show a list of suggestions once the user enters text', function(assert) {
-  click((find('button.standard-button:contains("Add new user")'))).then(function() {
-   fillIn(find('input.user-search'), 's').then(function() {
-    // check for existence of typeahead dropdown
+test('Adds a new user to the list when the user clicks "Add user"', function(assert) {
+  click(find('button.standard-button:contains("Add new user")')).then(function() {
+   fillIn(find('input#add-user'), 'test_user5').then(function() {
+    click(find('button.standard-button:contains("Add user")')).then(function() {
+      assert.equal(find('li.trip-member:contains("test_user5")').length, 1);
+    });
    });
   });
 });
