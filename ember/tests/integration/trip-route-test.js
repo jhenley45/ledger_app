@@ -129,7 +129,7 @@ test('Adds a new user to the list when the user clicks "Add user"', function(ass
   });
 });
 
-test('Hides the forms after a user is successfully added', function(assert) {
+test('Hides the form after a user is successfully added', function(assert) {
   visit('/trips/2').then(function() {
     click(find('button.standard-button:contains("Add new user")')).then(function() {
      fillIn(find('input#add-user'), 'test_user5').then(function() {
@@ -141,4 +141,17 @@ test('Hides the forms after a user is successfully added', function(assert) {
   });
 });
 
+test('Should clear the form after a user is successfully added', function(assert) {
+  visit('/trips/2').then(function() {
+    click(find('button.standard-button:contains("Add new user")')).then(function() {
+     fillIn(find('input#add-user'), 'test_user5').then(function() {
+      click(find('button.standard-button:contains("Add user")')).then(function() {
+        click(find('button.standard-button:contains("Add new user")')).then(function() {
+          assert.equal(find('input#add-user').val(), "");
+        })
+      });
+     });
+    });
+  });
+});
 
