@@ -148,7 +148,7 @@ test('Should clear the form after a user is successfully added', function(assert
       click(find('button.standard-button:contains("Add user")')).then(function() {
         click(find('button.standard-button:contains("Add new user")')).then(function() {
           assert.equal(find('input#add-user').val(), "");
-        })
+        });
       });
      });
     });
