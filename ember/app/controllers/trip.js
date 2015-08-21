@@ -57,7 +57,7 @@ export default Ember.ObjectController.extend({
       	Ember.run(function() {
       		_this.set('isAddUserVisible', false);
       		_this.set('addUser', undefined);
-      	})
+      	});
       });
 		}
 	},
