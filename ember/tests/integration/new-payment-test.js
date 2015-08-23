@@ -4,10 +4,12 @@ import startApp from '../helpers/start-app';
 
 var App;
 
-module('Integration - New Payment Page', {
+module('Integration - New Payment', {
   beforeEach: function() {
     App = startApp();
-    visit('/trips/2/payments/new');
+    visit('/trips/2').then(function() {
+      click(find('button.standard-button:contains("Add a new payment")'));
+    });
   },
   afterEach: function() {
     Ember.run(App, 'destroy');
@@ -58,7 +60,7 @@ test('Should add the payment to the list of existing trip payments after it is c
   });
 });
 
-test('Should redirect the user to the trip route after payment has been added.', function(assert) {
+test('Should hide the new payment form after payment has been added.', function(assert) {
   fillIn(find('input#description'), 'Test Payment 4');
   fillIn(find('input#amount'), '230');
   click(find('button:contains("Add payment")')).then(function() {

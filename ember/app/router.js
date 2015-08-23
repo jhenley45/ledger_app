@@ -8,9 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
 	this.resource('trips', {path: '/trips'}, function() {
 		this.resource('trip', {path: '/:trip_id'}, function() {
-			this.resource('payments', {path: '/payments'}, function() {
-				this.route('new');
-			});
+
 		});
 		this.route('new');
 	});

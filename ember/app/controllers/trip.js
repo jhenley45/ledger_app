@@ -8,13 +8,6 @@ export default Ember.ObjectController.extend({
 	applicationController: Ember.computed.alias('controllers.application'),
 
 	actions: {
-		toggleNewPaymentForm : function() {
-			if (this.get('isTripRoute')) {
-				this.transitionToRoute('payments.new');
-			} else {
-				this.transitionToRoute('trip');
-			}
-		},
 		removePayment: function(payment) {
 			var _this = this;
 			payment.destroyRecord().then(function() {
@@ -32,6 +25,9 @@ export default Ember.ObjectController.extend({
 			}, function() {
 				_this.send('flashMessage', 'An error occurred while processing your request', false);
 			});
+		},
+		toggleNewPaymentForm : function() {
+			this.set('isAddPaymentVisible', !this.get('isAddPaymentVisible'));
 		},
 		toggleAddUser: function() {
 			this.set('isAddUserVisible', !this.get('isAddUserVisible'));
@@ -59,20 +55,48 @@ export default Ember.ObjectController.extend({
       		_this.set('addUser', undefined);
       	});
       });
+		},
+		addPaymentToTrip : function() {
+			// clear any lingering form errors
+			this.set('formError', undefined);
+
+			var _this = this;
+			var amount = this.get('amount');
+			var description = this.get('description');
+
+			if (!amount || amount.length < 1 || $.trim(amount) === "") {
+				this.set('formError', 'Amount field cannot be empty');
+				return;
+			} else if (isNaN(parseFloat(amount))) {
+				this.set('formError', 'Amount value must be a number');
+				return;
+			} else {
+				var trip = this.get('model');
+				var payment = this.store.createRecord('payment', {
+					description: description,
+					amount: amount,
+					trip: trip
+				});
+				payment.save().then(function() {
+					_this.set('description', undefined);
+					_this.set('amount', undefined);
+					_this.send('flashMessage', 'New payment successfully created', true);
+					_this.set('isAddPaymentVisible', false);
+				}, function() {
+					// need to destroy payment object
+					_this.send('flashMessage', 'An error occurred while processing your request', false);
+				});
+			}
 		}
 	},
 
-	isTripRoute : function() {
-		return this.get('applicationController.currentRouteName') === 'trip.index' ? true : false;
-	}.property('applicationController.currentRouteName'),
-
 	newPaymentButtonText : function() {
-		if (this.get('isTripRoute')) {
-			return 'Add a new payment';
-		} else {
+		if (this.get('isAddPaymentVisible')) {
 			return 'Cancel';
+		} else {
+			return 'Add a new payment';
 		}
-	}.property('isTripRoute'),
+	}.property('isAddPaymentVisible'),
 
 	addNewUserButtonText : function() {
 		if (this.get('isAddUserVisible')) {
