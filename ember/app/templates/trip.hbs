@@ -1,29 +1,41 @@
-<h3>{{title}}</h3>
-
-<div class="col-md-3 pull-right">
-
-	<h4 class="trip-members">Members of this trip</h3>
-
-	<ul>
-		<li class="trip-organizer">{{organizer.username}} (organizer)</li>
-		{{#each member in membersWithoutOrganizer}}
-			<li class="trip-member">{{member.username}}</li>
-		{{/each}}
-	</ul>
-
-	<button {{action "toggleAddUser"}} class="standard-button">{{addNewUserButtonText}}</button>
-
-	{{#if isAddUserVisible}}
-		<div class="form-group">
-			Amount: {{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
-		</div>
-
-		<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
-	{{/if}}
-
-	{{!-- decide where to go --}}
-	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+<div class="row">
+	<div class="col-md-12" style="height: 400px; background-color: yellow;">
+		<!-- IMAGE GOES HERE -->
+	</div>
 </div>
+
+<div class="row">
+	<div class="col-md-8">
+
+		<h3>{{title}}</h3>
+
+		<div class="col-md-3">
+
+			<h4 class="trip-members">Members of this trip</h3>
+
+			<ul>
+				<li class="trip-organizer">{{organizer.username}} (organizer)</li>
+				{{#each member in membersWithoutOrganizer}}
+					<li class="trip-member">{{member.username}}</li>
+				{{/each}}
+			</ul>
+
+			<button {{action "toggleAddUser"}} class="standard-button">{{addNewUserButtonText}}</button>
+
+			{{#if isAddUserVisible}}
+				<div class="form-group">
+					Amount: {{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
+				</div>
+
+				<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
+			{{/if}}
+
+		</div>
+	</div>
+
+</div>
+
+
 
 <div class="col-md-6">
 
@@ -66,6 +78,7 @@
 	{{#if formError}}
 		<p class="error-message">Error: {{formError}}</p>
 	{{/if}}
-
-
 </div>
+
+{{!-- decide where to go --}}
+			<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
