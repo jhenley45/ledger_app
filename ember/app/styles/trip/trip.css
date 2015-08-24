@@ -24,3 +24,15 @@
 	color: white;
 	line-height: 35px;
 }
+
+.payments-content {
+	margin-top: 30px;
+}
+
+.payments {
+	margin: 20px 10px;
+}
+
+.payment {
+	margin: 20px 0px;
+}
