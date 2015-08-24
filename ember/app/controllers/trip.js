@@ -92,9 +92,9 @@ export default Ember.ObjectController.extend({
 
 	newPaymentButtonText : function() {
 		if (this.get('isAddPaymentVisible')) {
-			return 'Cancel';
+			return '-';
 		} else {
-			return 'Add a new payment';
+			return '+';
 		}
 	}.property('isAddPaymentVisible'),
 
