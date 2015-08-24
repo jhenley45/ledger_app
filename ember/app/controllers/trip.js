@@ -100,9 +100,9 @@ export default Ember.ObjectController.extend({
 
 	addNewUserButtonText : function() {
 		if (this.get('isAddUserVisible')) {
-			return 'Hide form';
+			return '-';
 		} else {
-			return 'Add new user';
+			return '+';
 		}
 	}.property('isAddUserVisible')
 });

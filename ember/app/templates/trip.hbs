@@ -4,81 +4,87 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-8">
+<div class="trip-content">
+	<div class="row">
+		<div class="col-md-7">
 
-		<h3>{{title}}</h3>
+			<h3>{{title}}</h3>
 
-		<div class="col-md-3">
+			<div class="trip-members">
 
-			<h4 class="trip-members">Members of this trip</h3>
+				<h4 style="display: inline-block;">Trip members:</h3>
 
-			<ul>
-				<li class="trip-organizer">{{organizer.username}} (organizer)</li>
-				{{#each member in membersWithoutOrganizer}}
-					<li class="trip-member">{{member.username}}</li>
-				{{/each}}
-			</ul>
+					<div class="trip-members">
+						{{#each member in membersWithoutOrganizer}}
+							<div class="trip-member">{{member.username}}</div>
+						{{/each}}
+					</div>
 
-			<button {{action "toggleAddUser"}} class="standard-button">{{addNewUserButtonText}}</button>
+				<div {{action "toggleAddUser"}} class="add-button inline">{{addNewUserButtonText}}</div>
 
-			{{#if isAddUserVisible}}
-				<div class="form-group">
-					Amount: {{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
-				</div>
+				{{#if isAddUserVisible}}
+					<div class="form-group">
+						{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
+					</div>
 
-				<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
-			{{/if}}
+					<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
+				{{/if}}
 
+			</div>
 		</div>
+		<li class="trip-organizer">{{organizer.username}} (organizer)</li>
 	</div>
 
-</div>
 
+	<div class="col-md-6">
 
+		<h4>Payments</h3>
 
-<div class="col-md-6">
+		{{#if payments.length}}
+			<ul>
+			{{#each payment in payments}}
+				<li class="payment">
+					{{payment.description}}
+					<span>
+						<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
+					</span>
+				</li>
+			{{/each}}
+			</ul>
+		{{else}}
+			<div class="warning-block">
+				There are currently no payments for this trip
+			</div>
+		{{/if}}
+		<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
 
-	<h4>Payments</h3>
+		{{#if isAddPaymentVisible}}
+			<h4 class='new-payment'>New Payment</h4>
 
-	{{#if payments.length}}
-		<ul>
-		{{#each payment in payments}}
-			<li class="payment">
-				{{payment.description}}
-				<span>
-					<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
-				</span>
-			</li>
-		{{/each}}
-		</ul>
-	{{else}}
-		<div class="warning-block">
-			There are currently no payments for this trip
-		</div>
-	{{/if}}
-	<button {{action "toggleNewPaymentForm"}} class="standard-button">{{newPaymentButtonText}}</button>
+			<div class='col-md-6'>
+				<div class="form-group">
+					Description: {{input type="text" class="form-control" id='description' value=description size="60" placeholder="Description"}}
+				</div>
 
-	{{#if isAddPaymentVisible}}
-		<h4 class='new-payment'>New Payment</h4>
-
-		<div class='col-md-6'>
-			<div class="form-group">
-				Description: {{input type="text" class="form-control" id='description' value=description size="60" placeholder="Description"}}
+				<div class="form-group">
+					Amount: {{input type="text" class="form-control" id='amount' value=amount size="60" placeholder="Amount"}}
+				</div>
 			</div>
 
-			<div class="form-group">
-				Amount: {{input type="text" class="form-control" id='amount' value=amount size="60" placeholder="Amount"}}
-			</div>
-		</div>
+			<button {{action "addPaymentToTrip"}} class="standard-button">Add payment</button>
+		{{/if}}
 
-		<button {{action "addPaymentToTrip"}} class="standard-button">Add payment</button>
-	{{/if}}
+		{{#if formError}}
+			<p class="error-message">Error: {{formError}}</p>
+		{{/if}}
+	</div>
 
-	{{#if formError}}
-		<p class="error-message">Error: {{formError}}</p>
-	{{/if}}
+	<div class="col-md-1"></div> <!-- Gutter -->
+
+
+
+
+	{{!-- decide where to go --}}
+	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+
 </div>
-
-{{!-- decide where to go --}}
-			<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
