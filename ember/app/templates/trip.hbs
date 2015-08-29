@@ -50,17 +50,19 @@
 			{{#if isAddPaymentVisible}}
 				<div>
 					<div class="new-payment-form">
-						<div style="margin-bottom: 10px;">
-							I spent $
-							{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
-							on
-							{{input type="text" class='transparent-input' id='description' value=description size="20"}}
-						</div>
+						<div style="width: 80%; margin: 0 auto;">
+							<div style="margin-bottom: 10px;">
+								I spent $
+								{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
+								on
+								{{input type="text" class='transparent-input' id='description' value=description size="20"}}
+							</div>
 
-						<div {{action "addPaymentToTrip"}} class="standard-button">Add payment</div>
-						{{#if formError}}
-							<div class="message-box error-message">Error: {{formError}}</div>
-						{{/if}}
+							<div {{action "addPaymentToTrip"}} class="standard-button">Add payment</div>
+							{{#if formError}}
+								<div class="message-box error-message">Error: {{formError}}</div>
+							{{/if}}
+						</div>
 					</div>
 				</div>
 
