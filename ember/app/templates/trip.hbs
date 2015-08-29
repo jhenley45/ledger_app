@@ -12,7 +12,7 @@
 
 			<div class="trip-members">
 
-				<h4 style="display: inline-block;">Trip members:</h3>
+				<h4 id="trip-members-title" style="display: inline-block;">Trip members:</h3>
 
 					<div class="trip-members">
 						{{#each member in membersWithoutOrganizer}}
@@ -20,7 +20,7 @@
 						{{/each}}
 					</div>
 
-				<div {{action "toggleAddUser"}} class="add-button inline">{{addNewUserButtonText}}</div>
+				<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
 
 				{{#if isAddUserVisible}}
 					<div class="form-group">
