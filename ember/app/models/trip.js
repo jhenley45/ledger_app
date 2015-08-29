@@ -11,7 +11,7 @@ export default DS.Model.extend({
   membersWithoutOrganizer: function() {
   	var _this = this;
   	return this.get('members').filter(function(member) {
-  		if (member.get('id') === _this.get('organizer').get('id')) {
+  		if (member.get('id') === String(_this.get('organizerId'))) {
   			return false;
   		} else {
   			return true;
