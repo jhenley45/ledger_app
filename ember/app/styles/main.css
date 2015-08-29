@@ -26,12 +26,22 @@ body {
 	color: #f23818;
 }
 
+.section-title {
+	padding: 20px;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	background-color: #00B0B9;
+}
+
 /** BUTTONS **/
 .standard-button {
 	background-color: #ffaa91;
 	padding: 10px;
 	border-radius: 10px;
 	color: white;
+	text-align: center;
+	font-size: 16px;
 }
 
 .standard-button:hover {
@@ -51,4 +61,11 @@ body {
 .error-message {
 	background-color: #FFBABA;
 	color: #D8000C;
+}
+
+
+/** CENTERING **/
+.center-div-80 {
+	width: 80%;
+	margin: 0 auto;
 }

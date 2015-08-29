@@ -46,3 +46,23 @@
 	text-align: center;
 	font-size: 16px;
 }
+
+
+/** TRIP SUMMARY SIDEBAR **/
+.trip-summary {
+	padding: 0px;
+	background-color: #f4ece9;
+}
+
+.settlements {
+	margin: 20px 0px;
+}
+
+.settlement {
+	text-align: center;
+	padding: 15px 0px;
+}
+
+#settle-trip-button {
+	margin-bottom: 30px;
+}

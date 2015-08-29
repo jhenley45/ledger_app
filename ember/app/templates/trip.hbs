@@ -50,7 +50,7 @@
 			{{#if isAddPaymentVisible}}
 				<div>
 					<div class="new-payment-form">
-						<div style="width: 80%; margin: 0 auto;">
+						<div class="center-div-80">
 							<div style="margin-bottom: 10px;">
 								I spent $
 								{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
@@ -85,6 +85,29 @@
 					There are currently no payments for this trip
 				</div>
 			{{/if}}
+		</div>
+
+		<div class="col-md-4 trip-summary">
+			<div class="section-title">
+				Trip Summary
+			</div>
+
+			<!-- SETTLEMENTS GO HERE -->
+			<div class="settlements">
+				<div class="settlement">
+					Jack owes steve $40
+				</div>
+				<div class="settlement">
+					Jack owes steve $40
+				</div>
+				<div class="settlement">
+					Jack owes steve $40
+				</div>
+			</div>
+
+			<div class="center-div-80">
+				<div class="standard-button" id="settle-trip-button">Settle Trip</div>
+			</div>
 		</div>
 	</div>
 
