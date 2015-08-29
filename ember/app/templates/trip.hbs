@@ -45,7 +45,7 @@
 
 			<h4 class="inline">Payments</h4>
 
-			<div {{action "toggleNewPaymentForm"}} class="add-button inline" style="margin-left: 20px;">{{newPaymentButtonText}}</div>
+			<div {{action "toggleNewPaymentForm"}} class="add-button inline" id="new-payment-button" style="margin-left: 20px;">{{newPaymentButtonText}}</div>
 
 			{{#if isAddPaymentVisible}}
 				<div>
@@ -67,7 +67,7 @@
 				</div>
 
 			{{/if}}
-
+			<hr>
 			{{#if payments.length}}
 				<div class="payments">
 					{{#each payment in payments}}
