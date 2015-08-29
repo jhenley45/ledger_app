@@ -49,16 +49,21 @@
 
 			{{#if isAddPaymentVisible}}
 				<div>
-					<div class="form-group">
-						Description: {{input type="text" class="form-control" id='description' value=description size="60" placeholder="Description"}}
-					</div>
+					<div class="new-payment-form">
+						<div style="margin-bottom: 10px;">
+							I spent $
+							{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
+							on
+							{{input type="text" class='transparent-input' id='description' value=description size="20"}}
+						</div>
 
-					<div class="form-group">
-						Amount: {{input type="text" class="form-control" id='amount' value=amount size="60" placeholder="Amount"}}
+						<div {{action "addPaymentToTrip"}} class="standard-button">Add payment</div>
+						{{#if formError}}
+							<div class="message-box error-message">Error: {{formError}}</div>
+						{{/if}}
 					</div>
 				</div>
 
-				<button {{action "addPaymentToTrip"}} class="standard-button">Add payment</button>
 			{{/if}}
 
 			{{#if payments.length}}
@@ -77,10 +82,6 @@
 				<div class="warning-block">
 					There are currently no payments for this trip
 				</div>
-			{{/if}}
-
-			{{#if formError}}
-				<p class="error-message">Error: {{formError}}</p>
 			{{/if}}
 		</div>
 	</div>
