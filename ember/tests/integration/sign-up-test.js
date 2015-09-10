@@ -17,3 +17,9 @@ module('Integration - Sign up', {
 test('Should have a sign up link in the navbar', function(assert) {
   assert.equal(find('#sign-up').text(), 'Sign up');
 });
+
+test('Sign up link should take user to sign up route', function(assert) {
+  click(find('#sign-up')).then(function() {
+    assert.equal(find('h2').text(), 'Create Account');
+  });
+});
