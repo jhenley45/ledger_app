@@ -19,7 +19,7 @@ test('Should have a title of "All Trips"', function(assert) {
 });
 
 test('Should display a list of trips', function(assert) {
-  assert.equal(find('li').length, 3);
+  assert.equal(find('li.trip-list').length, 3);
 });
 
 test('Should display the title of each trip in a link', function(assert) {

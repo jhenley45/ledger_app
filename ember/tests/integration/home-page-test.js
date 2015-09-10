@@ -15,6 +15,6 @@ module('Integration - Home Page', {
 
 test('Should say Ledger App', function(assert) {
   visit('/').then(function() {
-    assert.equal(find('h2#title').text(), 'Ledger App');
+    assert.equal(find('a.navbar-brand').text(), 'Ledger App');
   });
 });

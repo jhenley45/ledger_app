@@ -46,7 +46,7 @@ test('Should have a "Back" link', function(assert) {
 
 test('Should not create a new trip unless the user clicks submit', function(assert) {
   click(find('a:contains("Back")')).then(function() {
-    assert.equal(find('li').length, 3);
+    assert.equal(find('li.trip-list').length, 3);
   });
 });
 
@@ -66,4 +66,3 @@ test('Should transition the user to the new trips route after successfully creat
 //     });
 //   });
 // });
-
