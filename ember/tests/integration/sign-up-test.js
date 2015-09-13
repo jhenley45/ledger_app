@@ -23,3 +23,21 @@ test('Sign up link should take user to sign up route', function(assert) {
     assert.equal(find('h2').text(), 'Create Account');
   });
 });
+
+test('Sign up page should have an input box for email address', function(assert) {
+  click(find('#sign-up')).then(function() {
+    assert.equal(find('input#email').length, 1);
+  });
+});
+
+test('Sign up page should have an input box for password', function(assert) {
+  click(find('#sign-up')).then(function() {
+    assert.equal(find('input#password').length, 1);
+  });
+});
+
+test('Sign up page should have an input box for repeat password', function(assert) {
+  click(find('#sign-up')).then(function() {
+    assert.equal(find('input#repeat-password').length, 1);
+  });
+});
