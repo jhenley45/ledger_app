@@ -14,6 +14,8 @@ module('Integration - Sign up', {
   }
 });
 
+var createAccountText = "Create Account";
+
 test('Should have a sign up link in the navbar', function(assert) {
   assert.equal(find('#sign-up').text(), 'Sign up');
 });
@@ -39,5 +41,19 @@ test('Sign up page should have an input box for password', function(assert) {
 test('Sign up page should have an input box for repeat password', function(assert) {
   click(find('#sign-up')).then(function() {
     assert.equal(find('input#repeat-password').length, 1);
+  });
+});
+
+test('Should have a submit button with ' + createAccountText, function(assert) {
+  click(find('#sign-up')).then(function() {
+    assert.equal(find('button:contains(' + createAccountText + ')').length, 1);
+  });
+});
+
+test('Should show an error message when the user submits an empty form', function(assert) {
+  click(find('#sign-up')).then(function() {
+    click(find('button:contains(' + createAccountText + ')')).then(function() {
+      assert.equal(find('p:contains("You must provide an email address")').length, 1);
+    })
   });
 });
