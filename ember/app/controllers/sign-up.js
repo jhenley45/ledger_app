@@ -23,6 +23,9 @@ export default Ember.Controller.extend({
         this.set('passwordError', 'You must provide a password');
       } else if (!passwordConfirmation) {
         this.set('passwordConfirmationError', 'You must provide a confirmation password');
+      } else if (password !== passwordConfirmation) {
+        this.set('passwordError', 'Your passwords do not match');
+        this.set('passwordConfirmationError', 'Your passwords do not match');
       }
     }
   },

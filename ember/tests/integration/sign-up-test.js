@@ -163,3 +163,30 @@ test('Should clear the error if the user corrects an empty password confirmation
     })
   });
 });
+
+test('Should show an error message when the user submits a passwords that do not match', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@else.com');
+    fillIn(find('input#password'), 'mycoolpass1');
+    fillIn(find('input#repeat-password'), 'mycoolpass2');
+    click(find('button:contains(' + createAccountText + ')')).then(function() {
+      assert.equal(find('p:contains("Your passwords do not match")').length, 2);
+    })
+  });
+});
+
+test('Should clear the error if the user corrects an incorrect password error', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@aol.com')
+    fillIn(find('input#password'), 'mycoolpass')
+    fillIn(find('input#repeat-password'), 'mycoolpass2').then(function() {
+      click(find('button:contains(' + createAccountText + ')')).then(function() {
+        fillIn(find('input#repeat-password'), 'mycoolpass').then(function() {
+          click(find('button:contains(' + createAccountText + ')')).then(function() {
+            assert.equal(find('p:contains("Your passwords do not match")').length, 0);
+          })
+        })
+      })
+    })
+  });
+});
