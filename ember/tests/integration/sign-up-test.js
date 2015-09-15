@@ -54,7 +54,7 @@ test('Should show an error message when the user submits an empty form', functio
   click(find('#sign-up')).then(function() {
     click(find('button:contains(' + createAccountText + ')')).then(function() {
       assert.equal(find('p:contains("You must provide an email address")').length, 1);
-    })
+    });
   });
 });
 
@@ -63,8 +63,8 @@ test('Should show an error message when the user submits an invalid email addres
     fillIn(find('input#email'), 'something').then(function() {
       click(find('button:contains(' + createAccountText + ')')).then(function() {
         assert.equal(find('p:contains("You must provide a valid email address")').length, 1);
-      })
-    })
+      });
+    });
   });
 });
 
@@ -73,8 +73,8 @@ test('Should show an error message when the user submits an invalid email addres
     fillIn(find('input#email'), '@aol.com').then(function() {
       click(find('button:contains(' + createAccountText + ')')).then(function() {
         assert.equal(find('p:contains("You must provide a valid email address")').length, 1);
-      })
-    })
+      });
+    });
   });
 });
 
@@ -83,8 +83,8 @@ test('Should show an error message when the user submits an invalid email addres
     fillIn(find('input#email'), 'something@else.').then(function() {
       click(find('button:contains(' + createAccountText + ')')).then(function() {
         assert.equal(find('p:contains("You must provide a valid email address")').length, 1);
-      })
-    })
+      });
+    });
   });
 });
 
@@ -95,10 +95,10 @@ test('Should clear the error if the user corrects an invalid email address', fun
         fillIn(find('input#email'), 'something@else.com').then(function() {
           click(find('button:contains(' + createAccountText + ')')).then(function() {
             assert.equal(find('p:contains("You must provide a valid email address")').length, 0);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   });
 });
 
@@ -109,10 +109,10 @@ test('Should clear the error if the user corrects an empty email address', funct
         fillIn(find('input#email'), 'something@else.com').then(function() {
           click(find('button:contains(' + createAccountText + ')')).then(function() {
             assert.equal(find('p:contains("You must provide an email address")').length, 0);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   });
 });
 
@@ -121,7 +121,7 @@ test('Should show an error message when the user submits an empty password field
     fillIn(find('input#email'), 'something@else.com');
     click(find('button:contains(' + createAccountText + ')')).then(function() {
       assert.equal(find('p:contains("You must provide a password")').length, 1);
-    })
+    });
   });
 });
 
@@ -132,10 +132,10 @@ test('Should clear the error if the user corrects an empty password', function(a
         fillIn(find('input#password'), 'mypassword').then(function() {
           click(find('button:contains(' + createAccountText + ')')).then(function() {
             assert.equal(find('p:contains("You must provide a password")').length, 0);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   });
 });
 
@@ -145,22 +145,22 @@ test('Should show an error message when the user submits an empty password confi
     fillIn(find('input#password'), 'mycoolpass');
     click(find('button:contains(' + createAccountText + ')')).then(function() {
       assert.equal(find('p:contains("You must provide a confirmation password")').length, 1);
-    })
+    });
   });
 });
 
 test('Should clear the error if the user corrects an empty password confirmation', function(assert) {
   click(find('#sign-up')).then(function() {
-    fillIn(find('input#email'), 'something@aol.com')
+    fillIn(find('input#email'), 'something@aol.com');
     fillIn(find('input#password'), 'mycoolpass').then(function() {
       click(find('button:contains(' + createAccountText + ')')).then(function() {
         fillIn(find('input#repeat-password'), 'mypassword').then(function() {
           click(find('button:contains(' + createAccountText + ')')).then(function() {
             assert.equal(find('p:contains("You must provide a confirmation password")').length, 0);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   });
 });
 
@@ -171,23 +171,23 @@ test('Should show an error message when the user submits a passwords that do not
     fillIn(find('input#repeat-password'), 'mycoolpass2');
     click(find('button:contains(' + createAccountText + ')')).then(function() {
       assert.equal(find('p:contains("Your passwords do not match")').length, 2);
-    })
+    });
   });
 });
 
 test('Should clear the error if the user corrects an incorrect password error', function(assert) {
   click(find('#sign-up')).then(function() {
-    fillIn(find('input#email'), 'something@aol.com')
-    fillIn(find('input#password'), 'mycoolpass')
+    fillIn(find('input#email'), 'something@aol.com');
+    fillIn(find('input#password'), 'mycoolpass');
     fillIn(find('input#repeat-password'), 'mycoolpass2').then(function() {
       click(find('button:contains(' + createAccountText + ')')).then(function() {
         fillIn(find('input#repeat-password'), 'mycoolpass').then(function() {
           click(find('button:contains(' + createAccountText + ')')).then(function() {
             assert.equal(find('p:contains("Your passwords do not match")').length, 0);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   });
 });
 
@@ -198,6 +198,6 @@ test('Should show a button to connect to venmo when all forms are correctly fill
     fillIn(find('input#repeat-password'), 'mycoolpass1');
     click(find('button:contains(' + createAccountText + ')')).then(function() {
       assert.equal(find('a:contains("Connect to Venmo")').length, 1);
-    })
+    });
   });
 });
