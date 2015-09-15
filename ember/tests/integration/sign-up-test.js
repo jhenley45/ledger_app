@@ -138,3 +138,28 @@ test('Should clear the error if the user corrects an empty password', function(a
     })
   });
 });
+
+test('Should show an error message when the user submits an empty password confirmation field', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@else.com');
+    fillIn(find('input#password'), 'mycoolpass');
+    click(find('button:contains(' + createAccountText + ')')).then(function() {
+      assert.equal(find('p:contains("You must provide a confirmation password")').length, 1);
+    })
+  });
+});
+
+test('Should clear the error if the user corrects an empty password confirmation', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@aol.com')
+    fillIn(find('input#password'), 'mycoolpass').then(function() {
+      click(find('button:contains(' + createAccountText + ')')).then(function() {
+        fillIn(find('input#repeat-password'), 'mypassword').then(function() {
+          click(find('button:contains(' + createAccountText + ')')).then(function() {
+            assert.equal(find('p:contains("You must provide a confirmation password")').length, 0);
+          })
+        })
+      })
+    })
+  });
+});
