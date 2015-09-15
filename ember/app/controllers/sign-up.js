@@ -8,6 +8,9 @@ export default Ember.Controller.extend({
 
       email = this.get('email');
 
+      // clear any pre-existing errors
+      this.set('emailError', undefined);
+
       if (!email) {
         this.set('emailError', 'You must provide an email address');
       } else if (!this.emailValidation(email)) {

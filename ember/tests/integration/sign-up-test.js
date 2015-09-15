@@ -87,3 +87,31 @@ test('Should show an error message when the user submits an invalid email addres
     })
   });
 });
+
+test('Should clear the error if the user corrects an invalid email address', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@else.').then(function() {
+      click(find('button:contains(' + createAccountText + ')')).then(function() {
+        fillIn(find('input#email'), 'something@else.com').then(function() {
+          click(find('button:contains(' + createAccountText + ')')).then(function() {
+            assert.equal(find('p:contains("You must provide a valid email address")').length, 0);
+          })
+        })
+      })
+    })
+  });
+});
+
+test('Should clear the error if the user corrects an empty email address', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), '').then(function() {
+      click(find('button:contains(' + createAccountText + ')')).then(function() {
+        fillIn(find('input#email'), 'something@else.com').then(function() {
+          click(find('button:contains(' + createAccountText + ')')).then(function() {
+            assert.equal(find('p:contains("You must provide an email address")').length, 0);
+          })
+        })
+      })
+    })
+  });
+});
