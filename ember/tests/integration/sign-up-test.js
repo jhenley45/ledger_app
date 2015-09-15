@@ -115,3 +115,26 @@ test('Should clear the error if the user corrects an empty email address', funct
     })
   });
 });
+
+test('Should show an error message when the user submits an empty password field', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@else.com');
+    click(find('button:contains(' + createAccountText + ')')).then(function() {
+      assert.equal(find('p:contains("You must provide a password")').length, 1);
+    })
+  });
+});
+
+test('Should clear the error if the user corrects an empty password', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@aol.com').then(function() {
+      click(find('button:contains(' + createAccountText + ')')).then(function() {
+        fillIn(find('input#password'), 'mypassword').then(function() {
+          click(find('button:contains(' + createAccountText + ')')).then(function() {
+            assert.equal(find('p:contains("You must provide a password")').length, 0);
+          })
+        })
+      })
+    })
+  });
+});

@@ -11,6 +11,9 @@
   <div class="form-group">
     Password {{input type="text" class="form-control" id="password" value=password size="30"}}
   </div>
+  {{#if passwordError}}
+    <p class="error-message">{{passwordError}}</p>
+  {{/if}}
 
   <div class="form-group">
     Repeat Password {{input type="text" class="form-control" id="repeat-password" value=repeat-password size="30"}}
