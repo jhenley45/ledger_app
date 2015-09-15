@@ -190,3 +190,14 @@ test('Should clear the error if the user corrects an incorrect password error', 
     })
   });
 });
+
+test('Should show a button to connect to venmo when all forms are correctly filled out', function(assert) {
+  click(find('#sign-up')).then(function() {
+    fillIn(find('input#email'), 'something@else.com');
+    fillIn(find('input#password'), 'mycoolpass1');
+    fillIn(find('input#repeat-password'), 'mycoolpass1');
+    click(find('button:contains(' + createAccountText + ')')).then(function() {
+      assert.equal(find('a:contains("Connect to Venmo")').length, 1);
+    })
+  });
+});

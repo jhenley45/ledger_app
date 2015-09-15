@@ -1,4 +1,5 @@
 import Ember from "ember";
+var $ = Ember.$;
 
 export default Ember.Controller.extend({
 
@@ -26,6 +27,22 @@ export default Ember.Controller.extend({
       } else if (password !== passwordConfirmation) {
         this.set('passwordError', 'Your passwords do not match');
         this.set('passwordConfirmationError', 'Your passwords do not match');
+      } else {
+        var _this = this;
+
+        $.ajax({
+          url: "/api/users",
+          type: "POST",
+          data: { email: email, password: password }
+        }).then(function(response) {
+          Ember.run(function() {
+            if (response.user) {
+              _this.set('showVenmoConnect', true);
+            }
+          });
+        }, function() {
+          // handle error
+        });
       }
     }
   },
