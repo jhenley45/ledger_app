@@ -38,3 +38,9 @@ test('Should redirect user to sign in route when link is clicked', function(asse
     assert.equal(find('h2:contains("Sign In")').length, 1);
   })
 });
+
+test('Sign in page should have an input box for email address', function(assert) {
+  click(find('#sign-in')).then(function() {
+    assert.equal(find('input#email').length, 1);
+  });
+});
