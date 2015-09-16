@@ -27,6 +27,6 @@ test('When not logged in, should not have a trips link in the navbar', function(
   assert.equal(find('a:contains("Trips")').length, 0);
 });
 
-test('When not logged in, should not have a trips link in the navbar', function(assert) {
+test('When not logged in, should not have the account dropdown in the navbar', function(assert) {
   assert.equal(find('li.dropdown').length, 0);
 });
