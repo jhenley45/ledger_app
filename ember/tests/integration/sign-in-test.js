@@ -44,3 +44,15 @@ test('Sign in page should have an input box for email address', function(assert)
     assert.equal(find('input#email').length, 1);
   });
 });
+
+test('Sign in page should have an input box for email address', function(assert) {
+  click(find('#sign-in')).then(function() {
+    assert.equal(find('input#password').length, 1);
+  });
+});
+
+test('Sign in page should have a Login button', function(assert) {
+  click(find('#sign-in')).then(function() {
+    assert.equal(find('button:contains("Login")').length, 1);
+  });
+});

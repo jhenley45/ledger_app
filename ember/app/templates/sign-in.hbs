@@ -2,6 +2,11 @@
 
 <div class='col-md-6'>
 	<div class="form-group">
-		Email Address {{input type="text" class="form-control" id="email" value=email size="30"}}
+		Email Address {{input type="text" class="form-control" id="email" value=identification size="30"}}
 	</div>
+  <div class="form-group">
+    Password {{input id='password' class='form-control' type='password' value=password}}
+  </div>
+
+  <button {{action "login"}}>Login</button>
 </div>
