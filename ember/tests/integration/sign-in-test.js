@@ -30,3 +30,11 @@ test('When not logged in, should not have a trips link in the navbar', function(
 test('When not logged in, should not have the account dropdown in the navbar', function(assert) {
   assert.equal(find('li.dropdown').length, 0);
 });
+
+
+// Sign in route tests
+test('Should redirect user to sign in route when link is clicked', function(assert) {
+  click(find('#sign-in')).then(function() {
+    assert.equal(find('h2:contains("Sign In")').length, 1);
+  })
+});
