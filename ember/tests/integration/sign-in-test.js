@@ -60,7 +60,17 @@ test('Sign in page should have a Login button', function(assert) {
 test('Should show an error message when the user submits an empty form', function(assert) {
   click(find('#sign-in')).then(function() {
     click(find('button:contains("Login")')).then(function() {
-      assert.equal(find('div.error-message:contains("You must provide an email address")').length, 1);
+      assert.equal(find('div.error-message:contains("Email field cannot be empty")').length, 1);
     });
+  });
+});
+
+test('Should show an error message when the user submits an empty password field', function(assert) {
+  click(find('#sign-in')).then(function() {
+    fillIn(find('input#email'), 'something@aol.com').then(function() {
+      click(find('button:contains("Login")')).then(function() {
+        assert.equal(find('div.error-message:contains("Password field cannot be empty")').length, 1);
+      });
+    })
   });
 });
