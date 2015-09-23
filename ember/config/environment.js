@@ -43,5 +43,10 @@ module.exports = function(environment) {
 
   }
 
+  // setup simple auth to user customSession from initializers/custom-session
+  ENV['simple-auth'] = {
+    session: 'session:customSession'
+  }
+
   return ENV;
 };
