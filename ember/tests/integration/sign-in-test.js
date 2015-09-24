@@ -8,6 +8,7 @@ module('Integration - Sign in', {
   beforeEach: function() {
     App = startApp();
     visit('/');
+    // invalidate session before each test so navbar is predictable
     invalidateSession();
   },
   afterEach: function() {
@@ -79,7 +80,7 @@ test('Should show an error message when the user submits an empty password field
 test('Should log the user in when the form is filled out', function(assert) {
   click(find('#sign-in')).then(function() {
     fillIn(find('input#email'), 'something@aol.com');
-    fillIn(find('input#email'), 'mycoolpass1').then(function() {
+    fillIn(find('input#password'), 'mycoolpass1').then(function() {
       click(find('button:contains("Login")')).then(function() {
         assert.equal(find('ul.navbar-nav:contains("Trips")').length, 1);
       });

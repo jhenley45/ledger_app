@@ -43,6 +43,8 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
+    // When using the testing helpers also make sure to use the ephemeral session store for the test environment
+    // as otherwise the session will be persisted and tests might influence each other.
     ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
   }
 
