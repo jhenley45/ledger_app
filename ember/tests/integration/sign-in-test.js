@@ -8,6 +8,7 @@ module('Integration - Sign in', {
   beforeEach: function() {
     App = startApp();
     visit('/');
+    invalidateSession();
   },
   afterEach: function() {
     Ember.run(App, 'destroy');
