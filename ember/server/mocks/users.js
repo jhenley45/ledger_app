@@ -37,6 +37,14 @@ module.exports = function(app) {
     });
   });
 
+  usersRouter.get('/4', function(req, res) {
+    res.send({
+      'users': {
+        id: 4,
+      }
+    });
+  });
+
   usersRouter.delete('/:id', function(req, res) {
     res.send({});
   });
