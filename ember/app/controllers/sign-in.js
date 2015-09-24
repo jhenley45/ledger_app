@@ -1,6 +1,4 @@
 import Ember from "ember";
-var $ = Ember.$;
-
 
 export default Ember.Controller.extend({
   authenticator: 'authenticator:custom',
@@ -27,7 +25,7 @@ export default Ember.Controller.extend({
         _this.transitionToRoute('index');
       }, function(message) {
         _this.set('errorMessage', message);
-      })
+      });
     }
   },
 

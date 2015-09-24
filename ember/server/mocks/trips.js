@@ -37,7 +37,7 @@ module.exports = function(app) {
         id: 2,
         title: "Trip 2",
         payment_ids: [1, 2, 3],
-        member_ids: [4, 7, 8],
+        user_ids: [4, 7, 8],
         organizer_id: 4
       },
       'payments': [
@@ -60,7 +60,7 @@ module.exports = function(app) {
           trip_id: 2
         }
       ],
-      'members': [
+      'users': [
         {
           id: 4,
           username: 'test_user1',

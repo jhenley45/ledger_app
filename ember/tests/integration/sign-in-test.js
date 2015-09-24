@@ -36,7 +36,7 @@ test('When not logged in, should not have the account dropdown in the navbar', f
 test('Should redirect user to sign in route when link is clicked', function(assert) {
   click(find('#sign-in')).then(function() {
     assert.equal(find('h2:contains("Sign In")').length, 1);
-  })
+  });
 });
 
 test('Sign in page should have an input box for email address', function(assert) {
@@ -71,7 +71,7 @@ test('Should show an error message when the user submits an empty password field
       click(find('button:contains("Login")')).then(function() {
         assert.equal(find('div.error-message:contains("Password field cannot be empty")').length, 1);
       });
-    })
+    });
   });
 });
 
@@ -82,6 +82,6 @@ test('Should log the user in when the form is filled out', function(assert) {
       click(find('button:contains("Login")')).then(function() {
         assert.equal(find('ul.navbar-nav:contains("Trips")').length, 1);
       });
-    })
+    });
   });
 });

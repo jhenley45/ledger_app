@@ -9,11 +9,11 @@ var CustomSession = Session.extend({
   // and set as currentUser prop on simple-auth session object,
   // which is injected into routes, controllers, and templates.
   currentUser: function() {
-    var userId = this.get('user_id');
+    var userId = this.get('secure.user_id');
     if (!Ember.isEmpty(userId)) {
       return this.container.lookup('store:main').find('user', userId);
     }
-  }.property('user_id')
+  }.property('secure.user_id')
 });
 
 export default {
