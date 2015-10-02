@@ -19,6 +19,17 @@ module.exports = function(environment) {
     }
   };
 
+  // https://github.com/rwjblue/ember-cli-content-security-policy
+    ENV.contentSecurityPolicy = {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self' http://fonts.gstatic.com",
+      'connect-src': "'self'",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'media-src': "'self'"
+    }
+
   // setup simple auth to user customSession from initializers/custom-session
   ENV['simple-auth'] = {
     session: 'session:customSession'
