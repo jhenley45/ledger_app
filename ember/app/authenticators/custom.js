@@ -48,7 +48,7 @@ var CustomAuthenticator = Base.extend({
       $.ajax({
         url: "/users/sign_out",
         type: "DELETE"
-      }).always(function(message) {
+      }).always(function() {
         resolve();
         // do a hard reload of page so that data store is cleared out.
         // https://github.com/emberjs/data/issues/235

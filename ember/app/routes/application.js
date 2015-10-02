@@ -9,7 +9,9 @@ export default Ember.Route.extend({
 		},
 		invalidateSession: function() {
 			var _this = this;
-			this.get('session').invalidate();
+			this.get('session').invalidate().then(function() {
+				_this.send('flashMessage', 'Successfully logged out', true);
+			});
 		}
 	}
 
