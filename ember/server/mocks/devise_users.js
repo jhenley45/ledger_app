@@ -9,6 +9,12 @@ module.exports = function(app) {
     });
   });
 
+  usersRouter.delete('/sign_out', function(req, res) {
+    res.send({
+        message: 'logged out'
+    });
+  });
+
   usersRouter.delete('/:id', function(req, res) {
     res.send({});
   });

@@ -42,20 +42,20 @@ var CustomAuthenticator = Base.extend({
     });
   },
 
-  // invalidate: function() {
-  //   // home of future session destroy method. Return an empty promise for now
-  // 	return new Ember.RSVP.Promise(function(resolve) {
-  //     $.ajax({
-  //       url: "/accounts/users/sign_out",
-  //       type: "DELETE"
-  //     }).always(function() {
-  //       resolve();
-  //       // do a hard reload of page so that data store is cleared out.
-  //       // https://github.com/emberjs/data/issues/235
-  //       document.location.reload(true);
-  //     });
-  //   });
-  // }
+  invalidate: function() {
+    // home of future session destroy method. Return an empty promise for now
+  	return new Ember.RSVP.Promise(function(resolve) {
+      $.ajax({
+        url: "/users/sign_out",
+        type: "DELETE"
+      }).always(function(message) {
+        resolve();
+        // do a hard reload of page so that data store is cleared out.
+        // https://github.com/emberjs/data/issues/235
+        document.location.reload(true);
+      });
+    });
+  }
 });
 
 export default CustomAuthenticator;
