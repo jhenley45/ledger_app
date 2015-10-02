@@ -87,3 +87,14 @@ test('Should log the user in when the form is filled out', function(assert) {
     });
   });
 });
+
+test('Should display the username of the user in the nav bar header', function(assert) {
+  click(find('#sign-in')).then(function() {
+    fillIn(find('input#email'), 'something@aol.com');
+    fillIn(find('input#password'), 'mycoolpass1').then(function() {
+      click(find('button:contains("Login")')).then(function() {
+        assert.equal(find('a.dropdown-toggle:contains("TestUser64")').length, 1);
+      });
+    });
+  });
+});

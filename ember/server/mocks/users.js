@@ -41,6 +41,7 @@ module.exports = function(app) {
     res.send({
       'users': {
         id: 4,
+        username: 'TestUser64'
       }
     });
   });
