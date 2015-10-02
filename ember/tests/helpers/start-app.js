@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Application from '../../app';
 import Router from '../../router';
 import config from '../../config/environment';
+// https://github.com/simplabs/ember-simple-auth/tree/master/packages/ember-simple-auth-testing
 import initializeTestHelpers from 'simple-auth-testing/test-helpers';
 initializeTestHelpers();
 
