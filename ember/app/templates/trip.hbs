@@ -15,8 +15,8 @@
 				<h4 id="trip-members-title" style="display: inline-block;">Trip members:</h3>
 
 					<div class="trip-members">
-						{{#each member in membersWithoutOrganizer}}
-							<div class="trip-member">{{member.username}}</div>
+						{{#each user in usersWithoutOrganizer}}
+							<div class="trip-member">{{user.username}}</div>
 						{{/each}}
 					</div>
 

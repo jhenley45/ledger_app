@@ -43,8 +43,8 @@ export default Ember.ObjectController.extend({
         data: { username: username, trip_id: trip.get('id') }
       }).then(function(response) {
       	Ember.run(function() {
-      		var newMember = _this.store.createRecord('member', response.user);
-      		trip.get('members').addObject(newMember);
+      		var newMember = _this.store.createRecord('user', response.user);
+      		trip.get('users').addObject(newMember);
       		_this.send('flashMessage', 'Member successfully added!', true);
       	});
       }, function() {

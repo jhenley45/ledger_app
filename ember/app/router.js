@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('sign_up');
+  this.route('sign_in');
 	this.resource('trips', {path: '/trips'}, function() {
 		this.resource('trip', {path: '/:trip_id'}, function() {
 

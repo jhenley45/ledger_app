@@ -19,6 +19,22 @@ module.exports = function(environment) {
     }
   };
 
+  // https://github.com/rwjblue/ember-cli-content-security-policy
+    ENV.contentSecurityPolicy = {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self' http://fonts.gstatic.com",
+      'connect-src': "'self'",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'media-src': "'self'"
+    }
+
+  // setup simple auth to user customSession from initializers/custom-session
+  ENV['simple-auth'] = {
+    session: 'session:customSession'
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -37,7 +53,12 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    // When using the testing helpers also make sure to use the ephemeral session store for the test environment
+    // as otherwise the session will be persisted and tests might influence each other.
+    ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
   }
+
 
   if (environment === 'production') {
 
