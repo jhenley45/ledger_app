@@ -52,7 +52,8 @@ var CustomAuthenticator = Base.extend({
         resolve();
         // do a hard reload of page so that data store is cleared out.
         // https://github.com/emberjs/data/issues/235
-        document.location.reload(true);
+        // This will cause test page to reload over and over. Commented out for now 10/1.
+        // document.location.reload(true);
       });
     });
   }

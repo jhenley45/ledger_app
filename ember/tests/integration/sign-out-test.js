@@ -30,10 +30,10 @@ test('When logged in, should have a sign out link nested under the dropdown in t
   });
 });
 
-// test('Should invalidate the user session when the user clicks to Sign out', function(assert) {
-//   click(find('a.dropdown-toggle:contains("TestUser64")')).then(function() {
-//     click(find('a:contains("Sign out")')).then(function() {
-//       assert.equal(find('#sign-in').length, 1);
-//     });
-//   });
-// });
+test('Should invalidate the user session when the user clicks to Sign out', function(assert) {
+  click(find('a.dropdown-toggle:contains("TestUser64")')).then(function() {
+    click(find('a:contains("Sign out")')).then(function() {
+      assert.equal(find('#sign-in').length, 1);
+    });
+  });
+});
