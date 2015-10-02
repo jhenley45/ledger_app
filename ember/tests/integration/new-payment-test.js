@@ -1,14 +1,17 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import signIn from '../helpers/sign-in';
 
 var App;
 
 module('Integration - New Payment', {
   beforeEach: function() {
     App = startApp();
-    visit('/trips/2').then(function() {
-      click(find('div#new-payment-button'));
+    signIn().then(function() {
+      visit('/trips/2').then(function() {
+        click(find('div#new-payment-button'));
+      });
     });
   },
   afterEach: function() {

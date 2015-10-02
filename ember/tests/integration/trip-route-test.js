@@ -1,13 +1,16 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import signIn from '../helpers/sign-in';
 
 var App;
 
 module('Integration - Trip Page', {
   beforeEach: function() {
     App = startApp();
-    visit('/trips/1');
+    signIn().then(function() {
+      visit('/trips/1');
+    });
   },
   afterEach: function() {
     Ember.run(App, 'destroy');
@@ -154,4 +157,3 @@ test('Should clear the form after a user is successfully added', function(assert
     });
   });
 });
-

@@ -1,13 +1,16 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import signIn from '../helpers/sign-in';
 
 var App;
 
 module('Integration - New Trip Page', {
   beforeEach: function() {
     App = startApp();
-    visit('/trips/new');
+    signIn().then(function() {
+      visit('/trips/new');
+    });
   },
   afterEach: function() {
     Ember.run(App, 'destroy');
