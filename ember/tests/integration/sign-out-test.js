@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
+import signIn from '../helpers/sign-in';
 
 var App;
 
@@ -9,14 +10,7 @@ module('Integration - Sign out', {
     App = startApp();
 
     invalidateSession().then(function() {
-        visit('/').then(function() {
-        click(find('#sign-in')).then(function() {
-          fillIn(find('input#email'), 'something@aol.com');
-          fillIn(find('input#password'), 'mycoolpass1').then(function() {
-            click(find('button:contains("Login")'));
-          });
-        });
-      });
+      signIn();
     });
   },
   afterEach: function() {
