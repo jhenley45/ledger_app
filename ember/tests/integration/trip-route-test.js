@@ -68,9 +68,11 @@ test('Should not have a button to allow the user to delete a trip if they are no
   assert.equal(find('button.standard-button:contains("Delete trip")').length, 0);
 });
 
-// test('Should have a button to allow the user to delete a trip if they are the organizer', function(assert) {
-//   assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
-// });
+test('Should have a button to allow the user to delete a trip if they are the organizer', function(assert) {
+  visit('trips/2').then(function() {
+    assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
+  });
+});
 
 test('Should redirect the user to the trips page when delete trip is clicked', function(assert) {
   visit('trips/2').then(function() {
