@@ -73,7 +73,9 @@
 					{{#each payment in payments}}
 						<div class="payment">
 							<img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
-							<span style="margin-left: 20px;">Username dropped ${{payment.amount}} on {{payment.description}}</span>
+							<span style="margin-left: 20px;">
+								{{payment.user.username}} dropped ${{payment.amount}} on {{payment.description}}
+							</span>
 							{{!-- <span>
 								<button {{action "removePayment" payment}} class="standard-button">Remove payment</button>
 							</span> --}}

@@ -31,6 +31,12 @@ test('Should display a list of payments for a trip when there are payments', fun
 	});
 });
 
+test('Should display the username of the payment owner when it is not the current user', function(assert) {
+	visit('/trips/2').then(function() {
+		assert.equal(find('div.payment:contains("test_user2")').length, 2);
+	});
+});
+
 test('Should have a button to allow the user to create a new payment for the trip', function(assert) {
   assert.equal(find('div#new-payment-button').length, 1);
 });

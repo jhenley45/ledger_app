@@ -45,31 +45,36 @@ module.exports = function(app) {
           id: 1,
           description: 'Test Payment 1',
           amount: 40,
-          trip_id: 2
+          trip_id: 2,
+          user_id: 7
         },
         {
           id: 2,
           description: 'Test Payment 2',
           amount: 50,
-          trip_id: 2
+          trip_id: 2,
+          user_id: 7
         },
         {
           id: 3,
           description: 'Test Payment 3',
           amount: 30,
-          trip_id: 2
+          trip_id: 2,
+          user_id: 4
         }
       ],
       'users': [
         {
           id: 4,
           username: 'test_user1',
-          trip_id: 2
+          trip_id: 2,
+          payment_ids: [4]
         },
         {
           id: 7,
           username: 'test_user2',
-          trip_id: 2
+          trip_id: 2,
+          payment_ids: [1, 2]
         },
         {
           id: 8,
