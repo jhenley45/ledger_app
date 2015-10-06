@@ -68,7 +68,7 @@ module.exports = function(app) {
           id: 4,
           username: 'test_user1',
           trip_id: 2,
-          payment_ids: [4]
+          payment_ids: [3]
         },
         {
           id: 7,

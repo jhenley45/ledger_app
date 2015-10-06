@@ -37,6 +37,12 @@ test('Should display the username of the payment owner when it is not the curren
 	});
 });
 
+test('Should display "You" as the payment owner when it is the current user', function(assert) {
+	visit('/trips/2').then(function() {
+		assert.equal(find('div.payment:contains("You")').length, 1);
+	});
+});
+
 test('Should have a button to allow the user to create a new payment for the trip', function(assert) {
   assert.equal(find('div#new-payment-button').length, 1);
 });
