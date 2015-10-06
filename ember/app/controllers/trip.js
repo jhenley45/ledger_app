@@ -104,5 +104,11 @@ export default Ember.ObjectController.extend({
 		} else {
 			return '+';
 		}
-	}.property('isAddUserVisible')
+	}.property('isAddUserVisible'),
+
+	isCurrentUserOrganizer : function() {
+		if (this.get('organizer')) {
+			return this.get('organizer').get('id') === this.get('session').get('currentUser').get('id');
+		}
+	}.property('organizer', 'session.currentUser')
 });

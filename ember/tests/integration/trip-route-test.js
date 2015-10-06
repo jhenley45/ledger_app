@@ -64,13 +64,19 @@ test('Should change the text of the link once the user has clicked on it', funct
 // });
 
 // DELETE TRIP
-test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
-  assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
+test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
+  assert.equal(find('button.standard-button:contains("Delete trip")').length, 0);
 });
 
+// test('Should have a button to allow the user to delete a trip if they are the organizer', function(assert) {
+//   assert.equal(find('button.standard-button:contains("Delete trip")').length, 1);
+// });
+
 test('Should redirect the user to the trips page when delete trip is clicked', function(assert) {
-  click((find('button.standard-button:contains("Delete trip")'))).then(function() {
-    assert.equal(find('h3:contains("All Trips")').length, 1);
+  visit('trips/2').then(function() {
+    click((find('button.standard-button:contains("Delete trip")'))).then(function() {
+      assert.equal(find('h3:contains("All Trips")').length, 1);
+    });
   });
 });
 

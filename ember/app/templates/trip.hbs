@@ -115,6 +115,8 @@
 
 
 	{{!-- decide where to go --}}
-	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+	{{#if isCurrentUserOrganizer}}
+		<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+	{{/if}}
 
 </div>
