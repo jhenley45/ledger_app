@@ -84,8 +84,27 @@ module.exports = function(app) {
     res.send({
       'trips': {
         id: req.params.id,
-        title: "Trip " + req.params.id
-      }
+        title: "Trip " + req.params.id,
+        user_ids: [4, 7, 8],
+        organizer_id: 7
+      },
+      'users': [
+        {
+          id: 4,
+          username: 'test_user1',
+          trip_id: req.params.id
+        },
+        {
+          id: 7,
+          username: 'test_user2',
+          trip_id: req.params.id
+        },
+        {
+          id: 8,
+          username: 'test_user3',
+          trip_id: req.params.id
+        }
+      ]
     });
   });
 

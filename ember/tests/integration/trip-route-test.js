@@ -102,13 +102,13 @@ test('Should list the members of the trip', function(assert) {
   });
 });
 
-test('Should designate the organizer of the trip', function(assert) {
-  assert.equal(find('div.trip-organizer:contains("(organizer)")').length, 1);
+test('Should display the username of the organizer of the trip', function(assert) {
+  assert.equal(find('div.trip-organizer:contains("test_user2")').length, 1);
 });
 
-test('Should display the username of the organizer of the trip', function(assert) {
+test('Should display "You" instead of the username when currentUser is organizer', function(assert) {
   visit('/trips/2').then(function() {
-    assert.equal(find('div.trip-organizer:contains("test_user1")').length, 1);
+    assert.equal(find('div.trip-organizer:contains("You")').length, 1);
   });
 });
 
