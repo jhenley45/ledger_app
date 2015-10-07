@@ -2,8 +2,8 @@ import Ember from "ember";
 
 export default Ember.ObjectController.extend({
   actions : {
-    promptRemovePayment: function(payment) {
-      payment.set('confirmRemove', true);
+    toggleConfirmRemovePayment: function() {
+      this.set('confirmRemove', !this.get('confirmRemove'));
     }
   },
   belongsToCurrentUser: function() {
