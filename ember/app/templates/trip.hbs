@@ -78,8 +78,14 @@
 							</span>
 							{{#if payment.belongsToCurrentUser}}
 								<span>
-									<i {{action "removePayment" payment}} id="remove-payment" class="fa fa-times"></i>
+									<i {{action "promptRemovePayment" payment}} id="remove-payment" class="fa fa-times"></i>
 								</span>
+							{{/if}}
+							{{#if payment.confirmRemove}}
+								<div>
+									Are you sure you want to delete this payment?
+									<button class="standard-button">Yes</button>
+								</div>
 							{{/if}}
 						</div>
 					{{/each}}
