@@ -59,6 +59,12 @@ test('Should change the text of the link once the user has clicked on it', funct
   });
 });
 
+test('Should have a button to allow the user to delete a payment from the trip if it belongs to that user', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('i#remove-payment').length, 1);
+  });
+});
+
 
 // DELETE PAYMENT
 // test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
