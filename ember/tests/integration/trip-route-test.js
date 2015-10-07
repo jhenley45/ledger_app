@@ -73,6 +73,16 @@ test('Should confirm that the payment should be deleted when user clicks to dele
   });
 });
 
+test('Should delete the payment when the user clicks to confirm the deletion', function(assert) {
+  visit('/trips/2').then(function() {
+    click(find('i#remove-payment')).then(function() {
+      click(find('button:contains("Yes")')).then(function() {
+        assert.equal(find('div.payment').length, 2);
+      })
+    });
+  });
+});
+
 // DELETE PAYMENT
 // test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
 //   visit('/trips/2').then(function() {

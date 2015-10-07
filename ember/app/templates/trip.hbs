@@ -84,7 +84,7 @@
 							{{#if payment.confirmRemove}}
 								<div>
 									Are you sure you want to delete this payment?
-									<button class="standard-button">Yes</button>
+									<button {{action "removePayment" payment}} class="standard-button">Yes</button>
 								</div>
 							{{/if}}
 						</div>
