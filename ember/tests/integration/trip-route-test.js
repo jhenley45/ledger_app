@@ -102,6 +102,13 @@ test('Should hide the delete payment option when the user clicks to cancel the d
   });
 });
 
+// EDIT PAYMENT
+test('Should have a button to allow the user to edit a payment from the trip if it belongs to that user', function(assert) {
+  visit('/trips/2').then(function() {
+    assert.equal(find('i#edit-payment').length, 1);
+  });
+});
+
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
