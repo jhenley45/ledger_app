@@ -74,14 +74,21 @@
 						<div class="payment">
 							<img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
 							<span style="margin-left: 20px;">
-								{{current-user-you payment.user session.currentUser}} dropped ${{payment.amount}} on {{payment.description}}
+								{{#if payment.isEditing}}
+									You dropped
+									{{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
+									on
+									{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
+								{{else}}
+									{{current-user-you payment.user session.currentUser}} dropped ${{payment.amount}} on {{payment.description}}
+								{{/if}}
 							</span>
 							{{#if payment.belongsToCurrentUser}}
 								<span>
 									<i {{action "toggleConfirmRemovePayment"}} id="remove-payment" class="fa fa-times"></i>
 								</span>
 								<span>
-									<i {{action "toggleEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
+									<i {{action "showEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
 								</span>
 							{{/if}}
 							{{#if payment.confirmRemove}}

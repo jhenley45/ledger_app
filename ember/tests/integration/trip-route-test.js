@@ -109,6 +109,14 @@ test('Should have a button to allow the user to edit a payment from the trip if 
   });
 });
 
+test('Should display an inline edit form when the user clicks to edit a payment', function(assert) {
+  visit('/trips/2').then(function() {
+    click(find('i#edit-payment')).then(function() {
+      assert.equal(find('.transparent-input').length, 2);
+    });
+  });
+});
+
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
