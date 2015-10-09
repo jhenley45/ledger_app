@@ -117,6 +117,14 @@ test('Should display an inline edit form when the user clicks to edit a payment'
   });
 });
 
+test('Should display an update payment button when the user clicks to edit a payment', function(assert) {
+  visit('/trips/2').then(function() {
+    click(find('i#edit-payment')).then(function() {
+      assert.equal(find('.standard-button:contains("Update")').length, 1);
+    });
+  });
+});
+
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
