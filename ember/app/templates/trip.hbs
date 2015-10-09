@@ -81,7 +81,9 @@
 									{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
 									<button {{action "updatePayment"}} class="standard-button">Update</button>
 								{{else}}
-									{{current-user-you payment.user session.currentUser}} dropped ${{payment.amount}} on {{payment.description}}
+									{{current-user-you payment.user session.currentUser}} dropped
+									<span id='payment-amount'>${{payment.amount}}</span> on
+									<span id='payment-description'>{{payment.description}}</span>
 								{{/if}}
 							</span>
 							{{#if payment.belongsToCurrentUser}}

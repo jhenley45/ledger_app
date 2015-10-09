@@ -8,6 +8,12 @@ export default Ember.ObjectController.extend({
     showEditPayment : function() {
       this.set('isEditing', true);
     },
+    updatePayment : function() {
+      var _this = this;
+      this.get('model').save().then(function() {
+        _this.set('isEditing', false);
+      });
+    }
   },
   belongsToCurrentUser: function() {
     return this.get('user').get('id') === this.get('session').get('currentUser').get('id');

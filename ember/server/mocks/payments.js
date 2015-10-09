@@ -39,6 +39,14 @@ module.exports = function(app) {
   });
 
   paymentsRouter.delete('/:id', function(req, res) {
+    res.send({
+      'payments': {
+        id: req.params.id
+      }
+    });
+  });
+
+  paymentsRouter.put('/:id', function(req, res) {
     res.send({});
   });
 
