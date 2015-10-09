@@ -59,6 +59,7 @@ test('Should change the text of the link once the user has clicked on it', funct
   });
 });
 
+// DELETE PAYMENT
 test('Should have a button to allow the user to delete a payment from the trip if it belongs to that user', function(assert) {
   visit('/trips/2').then(function() {
     assert.equal(find('i#remove-payment').length, 1);
@@ -101,20 +102,6 @@ test('Should hide the delete payment option when the user clicks to cancel the d
   });
 });
 
-// DELETE PAYMENT
-// test('Should have a button to allow the user to delete a payment from a trip', function(assert) {
-//   visit('/trips/2').then(function() {
-//     assert.equal(find('button.standard-button:contains("Remove payment")').length, 3);
-//   });
-// });
-
-// test('Should remove the payment from the list of trips once the user has clicked the button', function(assert) {
-//   visit('/trips/2').then(function() {
-//     click(find('button.standard-button:contains("Remove payment")').first()).then(function() {
-//       assert.equal(find('li.payment').length, 2);
-//     });
-//   });
-// });
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
