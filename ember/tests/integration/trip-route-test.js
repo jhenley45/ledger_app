@@ -138,6 +138,8 @@ test('Should save the payment and redisplay when the user clicks to update it', 
   });
 });
 
+//Add in form validations for update payment
+
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
