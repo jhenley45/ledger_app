@@ -1,11 +1,15 @@
 import Ember from 'ember';
+import flashObject from '../objects/flash'
 
 export default Ember.Route.extend({
 
 	actions : {
-		flashMessage : function(message, status) {
-			this.controllerFor('application').set('flashStatus', status);
-			this.controllerFor('application').set('flashMessage', message);
+		flashMessage : function(message, type) {
+			var flashMessage = flashObject.create({
+				message: message,
+				type: type
+			});
+			this.controllerFor('application').get('flashArray').pushObject(flashMessage);
 		},
 		invalidateSession: function() {
 			var _this = this;
@@ -14,5 +18,4 @@ export default Ember.Route.extend({
 			});
 		}
 	}
-
 });
