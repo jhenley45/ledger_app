@@ -1,9 +1,8 @@
+{{#if flashArray.length}}
+	{{flash-message flashBinding='flashArray.firstObject'}}
+{{/if}}
+
 {{partial "partials/nav-bar"}}
 <div class="container-fluid">
-
-	{{#if flashArray.length}}
-		{{flash-message flashBinding='flashArray.firstObject'}}
-	{{/if}}
-
 	{{outlet}}
 </div>

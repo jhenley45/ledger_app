@@ -1,3 +1,4 @@
 @import 'main.css';
 @import 'navbar.css';
 @import 'trip/trip.css';
+@import 'components/flash-message.css';
