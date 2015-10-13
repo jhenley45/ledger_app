@@ -2,6 +2,8 @@ import Ember from "ember";
 
 export default Ember.FlashMessageComponent = Ember.Component.extend({
   classNameBindings: ['setClass'],
+  classNames: ['flash-message'],
+
   setClass: function() {
     return "flash-" + this.get('flash').get('type');
   }.property('flash.type'),
