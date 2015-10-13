@@ -21,13 +21,13 @@ export default Ember.Controller.extend({
 					title: title
 				});
 				trip.save().then(function(trip) {
-					_this.send('flashMessage', 'New trip successfully created', true);
+					_this.send('flashMessage', 'New trip successfully created', 'success');
 					_this.transitionToRoute('trip', trip);
 				}, function(error) {
 					if (error.responseJSON && error.responseJSON.error) {
-						_this.send('flashMessage', error.responseJSON.error, false);
+						_this.send('flashMessage', error.responseJSON.error, 'warning');
 					} else {
-						_this.send('flashMessage', 'An error occurred while processing your request', false);
+						_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 					}
 				});
 			}

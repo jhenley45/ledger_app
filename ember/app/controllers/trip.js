@@ -11,19 +11,19 @@ export default Ember.ObjectController.extend({
 		removePayment: function(payment) {
 			var _this = this;
 			payment.destroyRecord().then(function() {
-				_this.send('flashMessage', 'Payment successfully deleted', true);
+				_this.send('flashMessage', 'Payment successfully deleted', 'success');
 			}, function() {
-				_this.send('flashMessage', 'An error occurred while processing your request', false);
+				_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 			});
 		},
 		deleteTrip: function(trip) {
 			var _this = this;
 
 			trip.destroyRecord().then(function() {
-				_this.send('flashMessage', 'Your trip has been successfully deleted', true);
+				_this.send('flashMessage', 'Your trip has been successfully deleted', 'success');
 				_this.transitionToRoute('trips');
 			}, function() {
-				_this.send('flashMessage', 'An error occurred while processing your request', false);
+				_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 			});
 		},
 		toggleNewPaymentForm : function() {
@@ -45,10 +45,10 @@ export default Ember.ObjectController.extend({
       	Ember.run(function() {
       		var newMember = _this.store.createRecord('user', response.user);
       		trip.get('users').addObject(newMember);
-      		_this.send('flashMessage', 'Member successfully added!', true);
+      		_this.send('flashMessage', 'Member successfully added!', 'success');
       	});
       }, function() {
-      	_this.send('flashMessage', 'An error occurred while processing your request', false);
+      	_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
       }).always(function() {
       	Ember.run(function() {
       		_this.set('isAddUserVisible', false);
@@ -80,11 +80,11 @@ export default Ember.ObjectController.extend({
 				payment.save().then(function() {
 					_this.set('description', undefined);
 					_this.set('amount', undefined);
-					_this.send('flashMessage', 'New payment successfully created', true);
+					_this.send('flashMessage', 'New payment successfully created', 'success');
 					_this.set('isAddPaymentVisible', false);
 				}, function() {
 					// need to destroy payment object
-					_this.send('flashMessage', 'An error occurred while processing your request', false);
+					_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 				});
 			}
 		}

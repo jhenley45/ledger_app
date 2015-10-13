@@ -4,7 +4,18 @@
   height: 50px;
   line-height: 50px;
   width: 100%;
-  background-color: red;
   z-index: 1000;
   text-align: center;
+}
+
+.flash-warning {
+    background-color: red
+}
+
+.flash-success {
+    background-color: green
+}
+
+.flash-notice {
+    background-color: blue
 }
