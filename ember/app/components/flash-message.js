@@ -5,16 +5,25 @@ export default Ember.FlashMessageComponent = Ember.Component.extend({
   classNames: ['flash-message'],
 
   setClass: function() {
-    return "flash-" + this.get('flash').get('type');
-  }.property('flash.type'),
+    return this.get('firstFlash').className;
+  }.property('firstFlash'),
+
+  firstFlash: function() {
+    return this.get('flashArray').get('firstObject');
+  }.property('flashArray.@each'),
 
   didInsertElement: function() {
   	var time = 3000;
   	var _this = this;
-    // this.$().fadeOut(time);
-    //
-    // Ember.run.later(_this, function() {
-    //   _this.set('flashMessage', undefined);
-    // }, time);
+    this.$().fadeOut(time);
+
+    Ember.run.later(_this, function() {
+      _this.get('flashArray').shiftObject();
+      if (this.get('flashArray').get('length')) {
+      	_this.rerender();
+      } else {
+        _this.destroy();
+      }
+    }, time);
   }
 });
