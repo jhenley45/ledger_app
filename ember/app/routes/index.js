@@ -5,5 +5,8 @@ export default Ember.Route.extend({
     if (!this.get('session').isAuthenticated) {
       this.transitionTo('sign_in');
     }
+  },
+  model : function() {
+    return this.store.find('trip');
   }
 });
