@@ -5,11 +5,11 @@ import signIn from '../helpers/sign-in';
 
 var App;
 
-module('Integration - Trips Page', {
+module('Integration - Index Page', {
   beforeEach: function() {
     App = startApp();
     signIn().then(function() {
-      visit('/trips');
+      visit('/');
     });
   },
   afterEach: function() {

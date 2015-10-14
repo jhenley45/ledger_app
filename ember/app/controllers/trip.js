@@ -21,7 +21,7 @@ export default Ember.ObjectController.extend({
 
 			trip.destroyRecord().then(function() {
 				_this.send('flashMessage', 'Your trip has been successfully deleted', 'success');
-				_this.transitionToRoute('trips');
+				_this.transitionToRoute('index');
 			}, function() {
 				_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 			});

@@ -80,7 +80,7 @@ test('Should show an error message when the user submits an empty password field
 
 test('Should log the user in when the form is filled out', function(assert) {
   signIn().then(function() {
-    assert.equal(find('ul.navbar-nav:contains("Trips")').length, 1);
+    assert.equal(find('li.user-menu').length, 1);
   });
 });
 
