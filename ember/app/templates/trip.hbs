@@ -93,6 +93,9 @@
 								<span>
 									<i {{action "showEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
 								</span>
+								{{#if payment.updatePaymentError}}
+									<div class="message-box error-message">Error: {{payment.updatePaymentError}}</div>
+								{{/if}}
 							{{/if}}
 							{{#if payment.confirmRemove}}
 								<div>
