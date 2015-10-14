@@ -8,19 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Ledger App</a>
+      {{#link-to 'index' class="navbar-brand"}}Ledger App{{/link-to}}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      {{#if session.currentUser}}
-        <ul class="nav navbar-nav">
-          <li>
-            {{#link-to 'trips'}}Trips{{/link-to}}
-          </li>
-        </ul>
-      {{/if}}
-
       <ul class="nav navbar-nav navbar-right">
 
         {{#if session.currentUser}}
