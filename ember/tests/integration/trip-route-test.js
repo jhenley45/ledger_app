@@ -79,7 +79,7 @@ test('Should delete the payment when the user clicks to confirm the deletion', f
     click(find('i#remove-payment')).then(function() {
       click(find('button:contains("Yes")')).then(function() {
         assert.equal(find('div.payment').length, 2);
-      })
+      });
     });
   });
 });
@@ -97,7 +97,7 @@ test('Should hide the delete payment option when the user clicks to cancel the d
     click(find('i#remove-payment')).then(function() {
       click(find('button:contains("No, cancel")')).then(function() {
         assert.equal(find('button:contains("No, cancel")').length, 0);
-      })
+      });
     });
   });
 });
@@ -133,7 +133,7 @@ test('Should save the payment and redisplay when the user clicks to update it', 
       click(find('.standard-button:contains("Update")')).then(function() {
         assert.equal(find('#payment-amount:contains("60")').length, 1);
         assert.equal(find('#payment-description:contains("new underwear")').length, 1);
-      })
+      });
     });
   });
 });

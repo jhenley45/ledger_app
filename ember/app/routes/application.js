@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import flashObject from '../objects/flash'
+import flashObject from '../objects/flash';
 
 export default Ember.Route.extend({
 

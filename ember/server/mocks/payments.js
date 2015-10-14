@@ -33,7 +33,8 @@ module.exports = function(app) {
         id: 4,
         description: 'Test Payment 4',
         amount: 230,
-        trip_id: 2
+        trip_id: 2,
+        user_id: 4
       }
     });
   });

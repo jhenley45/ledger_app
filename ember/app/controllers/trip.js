@@ -63,6 +63,7 @@ export default Ember.ObjectController.extend({
 			var _this = this;
 			var amount = this.get('amount');
 			var description = this.get('description');
+			var user = this.get('session').get('currentUser');
 
 			if (!amount || amount.length < 1 || $.trim(amount) === "") {
 				this.set('formError', 'Amount field cannot be empty');
@@ -75,7 +76,8 @@ export default Ember.ObjectController.extend({
 				var payment = this.store.createRecord('payment', {
 					description: description,
 					amount: amount,
-					trip: trip
+					trip: trip,
+					user: user
 				});
 				payment.save().then(function() {
 					_this.set('description', undefined);
