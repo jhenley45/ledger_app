@@ -11,7 +11,10 @@ export default Ember.ObjectController.extend({
     updatePayment : function() {
       var _this = this;
       this.get('model').save().then(function() {
+        _this.send('flashMessage', 'Payment successfully updated', 'success');
         _this.set('isEditing', false);
+      }, function() {
+        _this.send('flashMessage', 'An error occurred while processing your request', 'warning');
       });
     }
   },
