@@ -9,13 +9,13 @@
 }
 
 .flash-warning {
-    background-color: red
+    background-color: red;
 }
 
 .flash-success {
-    background-color: green
+    background-color: green;
 }
 
 .flash-notice {
-    background-color: blue
+    background-color: blue;
 }
