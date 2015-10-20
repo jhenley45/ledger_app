@@ -114,28 +114,30 @@
 			{{/if}}
 		</div>
 
-		<div class="col-md-4 trip-summary">
-			<div class="section-title">
-				Trip Summary
-			</div>
+		{{#if settlements.length}}
+			<div class="col-md-4 trip-summary">
+				<div class="section-title">
+					Trip Summary
+				</div>
 
-			<!-- SETTLEMENTS GO HERE -->
-			<div class="settlements">
-				<div class="settlement">
-					Jack owes steve $40
+				<!-- SETTLEMENTS GO HERE -->
+				<div class="settlements">
+					<div class="settlement">
+						Jack owes steve $40
+					</div>
+					<div class="settlement">
+						Jack owes steve $40
+					</div>
+					<div class="settlement">
+						Jack owes steve $40
+					</div>
 				</div>
-				<div class="settlement">
-					Jack owes steve $40
-				</div>
-				<div class="settlement">
-					Jack owes steve $40
-				</div>
-			</div>
 
-			<div class="center-div-80">
-				<div class="standard-button" id="settle-trip-button">Settle Trip</div>
+				<div class="center-div-80">
+					<div class="standard-button" id="settle-trip-button">Settle Trip</div>
+				</div>
 			</div>
-		</div>
+		{{/if}}
 	</div>
 
 

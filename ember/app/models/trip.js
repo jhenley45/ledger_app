@@ -3,6 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   title: DS.attr('string'),
   payments: DS.hasMany('payment'),
+  settlements: DS.hasMany('settlement'),
   users: DS.hasMany('user'),
   organizerId: DS.attr('number'),
   organizer: function() {
