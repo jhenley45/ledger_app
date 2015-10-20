@@ -69,18 +69,22 @@ module.exports = function(app) {
           id: 4,
           username: 'test_user1',
           trip_id: 2,
-          payment_ids: [3]
+          payment_ids: [3],
+          settlement_ids: [1, 2]
         },
         {
           id: 7,
           username: 'test_user2',
           trip_id: 2,
-          payment_ids: [1, 2]
+          payment_ids: [1, 2],
+          settlement_ids: [3]
         },
         {
           id: 8,
           username: 'test_user3',
-          trip_id: 2
+          trip_id: 2,
+          payment_ids: [],
+          settlement_ids: [4]
         }
       ],
       'settlements': [
@@ -88,21 +92,29 @@ module.exports = function(app) {
           id: 1,
           amount: '49.98',
           trip_id: 2,
+          payer_id: 4,
+          payee_id: 7
         },
         {
           id: 2,
           amount: '43.43',
           trip_id: 2,
+          payer_id: 4,
+          payee_id: 8
         },
         {
           id: 3,
           amount: '20.65',
-          trip_id: 2
+          trip_id: 2,
+          payer_id: 7,
+          payee_id: 8
         },
         {
           id: 4,
           amount: '12.43',
-          trip_id: 2
+          trip_id: 2,
+          payer_id: 8,
+          payee_id: 4
         }
       ]
     });

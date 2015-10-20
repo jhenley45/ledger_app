@@ -124,7 +124,7 @@
 				<div class="settlements">
 					{{#each settlement in settlements}}
 						<div class="settlement">
-							Jack owes steve <span class="settlement-amount">${{settlement.amount}}</span>
+							{{settlement.payer.username}} owes {{settlement.payee.username}} <span class="settlement-amount">${{settlement.amount}}</span>
 						</div>
 					{{/each}}
 				</div>

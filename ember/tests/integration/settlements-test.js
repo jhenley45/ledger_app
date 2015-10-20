@@ -35,3 +35,7 @@ test('Should show a list of all settlements', function(assert) {
 test('Should say the amount for each settlement', function(assert) {
   assert.equal(find('span.settlement-amount').text(), "$49.98$43.43$20.65$12.43");
 });
+
+test('Should say who owes who for a settlement', function(assert) {
+  assert.equal(find('div.settlement:contains("test_user1 owes test_user2 $49.98")').length, 1);
+});
