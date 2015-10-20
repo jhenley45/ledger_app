@@ -86,18 +86,22 @@ module.exports = function(app) {
       'settlements': [
         {
           id: 1,
+          amount: '49.98',
           trip_id: 2,
         },
         {
           id: 2,
+          amount: '43.43',
           trip_id: 2,
         },
         {
           id: 3,
+          amount: '20.65',
           trip_id: 2
         },
         {
           id: 4,
+          amount: '12.43',
           trip_id: 2
         }
       ]

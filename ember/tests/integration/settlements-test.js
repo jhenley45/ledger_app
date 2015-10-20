@@ -31,3 +31,7 @@ test('Should NOT show the Trip Summary sidebar when there are no settlements', f
 test('Should show a list of all settlements', function(assert) {
   assert.equal(find('div.settlement').length, 4);
 });
+
+test('Should say the amount for each settlement', function(assert) {
+  assert.equal(find('span.settlement-amount').text(), "$49.98$43.43$20.65$12.43");
+});
