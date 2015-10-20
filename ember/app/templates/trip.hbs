@@ -120,17 +120,13 @@
 					Trip Summary
 				</div>
 
-				<!-- SETTLEMENTS GO HERE -->
+
 				<div class="settlements">
-					<div class="settlement">
-						Jack owes steve $40
-					</div>
-					<div class="settlement">
-						Jack owes steve $40
-					</div>
-					<div class="settlement">
-						Jack owes steve $40
-					</div>
+					{{#each settlement in settlements}}
+						<div class="settlement">
+							Jack owes steve $40
+						</div>
+					{{/each}}
 				</div>
 
 				<div class="center-div-80">

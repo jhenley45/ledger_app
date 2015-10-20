@@ -27,3 +27,7 @@ test('Should NOT show the Trip Summary sidebar when there are no settlements', f
     assert.equal(find('div.section-title:contains("Trip Summary")').length, 0);
   })
 });
+
+test('Should show a list of all settlements', function(assert) {
+  assert.equal(find('div.settlement').length, 4);
+});
