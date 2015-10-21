@@ -32,3 +32,11 @@ test('Should show a cancel settle button when the user clicks to settle a trip',
     assert.equal(find('button:contains("No, cancel")').length, 1);
   })
 });
+
+test('Should hide the delete payment option when the user clicks to cancel the deletion', function(assert) {
+  click(find('#settle-trip-button')).then(function() {
+    click(find('button:contains("No, cancel")')).then(function() {
+      assert.equal(find('button:contains("No, cancel")').length, 0);
+    });
+  });
+});

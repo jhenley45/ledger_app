@@ -11,6 +11,9 @@ export default Ember.ObjectController.extend({
 		confirmSettleTrip: function() {
 			this.set('confirmSettleTrip', true);
 		},
+		hideConfirmSettleTrip: function() {
+			this.set('confirmSettleTrip', false);
+		},
 		removePayment: function(payment) {
 			var _this = this;
 			payment.destroyRecord().then(function() {
