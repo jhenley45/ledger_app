@@ -8,6 +8,9 @@ export default Ember.ObjectController.extend({
 	applicationController: Ember.computed.alias('controllers.application'),
 
 	actions: {
+		confirmSettleTrip: function() {
+			this.set('confirmSettleTrip', true);
+		},
 		removePayment: function(payment) {
 			var _this = this;
 			payment.destroyRecord().then(function() {
