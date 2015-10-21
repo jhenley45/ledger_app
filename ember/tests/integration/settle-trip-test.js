@@ -26,3 +26,9 @@ test('Should show a confirm button when the user clicks on Settle Trip', functio
     assert.equal(find('button:contains("Yes")').length, 1);
   })
 });
+
+test('Should show a cancel settle button when the user clicks to settle a trip', function(assert) {
+  click(find('#settle-trip-button')).then(function() {
+    assert.equal(find('button:contains("No, cancel")').length, 1);
+  })
+});
