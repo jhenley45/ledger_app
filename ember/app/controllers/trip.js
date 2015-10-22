@@ -14,6 +14,16 @@ export default Ember.ObjectController.extend({
 		hideConfirmSettleTrip: function() {
 			this.set('confirmSettleTrip', false);
 		},
+		settleTrip: function() {
+			var trip = this.get('model');
+			var _this = this;
+
+			trip.set('isSettled', true);
+			trip.save().then(function() {
+				_this.send('flashMessage', 'Your trip has been settled. Please allow a few moments for Venmo to process', 'success');
+				_this.send('hideConfirmSettleTrip');
+			});
+		},
 		removePayment: function(payment) {
 			var _this = this;
 			payment.destroyRecord().then(function() {

@@ -130,10 +130,14 @@
 				</div>
 
 				<div class="center-div-80">
-					<div class="standard-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
+					{{#if isSettled}}
+						<div class="standard-button inactive-button" id="settle-trip-button">Settled.</div>
+					{{else}}
+						<div class="standard-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
+					{{/if}}
 
 					{{#if confirmSettleTrip}}
-						<button class="standard-button">Yes</button>
+						<button {{action "settleTrip"}}class="standard-button">Yes</button>
 						<button {{action 'hideConfirmSettleTrip'}} class="standard-button">No, cancel</button>
 					{{/if}}
 				</div>

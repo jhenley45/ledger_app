@@ -40,3 +40,12 @@ test('Should hide the delete payment option when the user clicks to cancel the d
     });
   });
 });
+
+// What happens after a trip is settled?
+test('Should settle the trip when the user confirms to settle trip', function(assert) {
+  click(find('#settle-trip-button')).then(function() {
+    click(find('button:contains("Yes")')).then(function() {
+      assert.equal(find('div.standard-button:contains("Settled.")').length, 1);
+    });
+  });
+});
