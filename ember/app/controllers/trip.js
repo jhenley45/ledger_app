@@ -22,6 +22,10 @@ export default Ember.ObjectController.extend({
 			trip.save().then(function() {
 				_this.send('flashMessage', 'Your trip has been settled. Please allow a few moments for Venmo to process', 'success');
 				_this.send('hideConfirmSettleTrip');
+			}, function() {
+				_this.send('flashMessage', 'There was an error while trying to process your request. Please try again later.', 'warning');
+				_this.send('hideConfirmSettleTrip');
+				trip.set('isSettled', false);
 			});
 		},
 		removePayment: function(payment) {
