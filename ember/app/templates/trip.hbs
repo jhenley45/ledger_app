@@ -27,7 +27,7 @@
 						{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
 					</div>
 
-					<button {{action "addUserToTrip"}} class="standard-button">Add user</button>
+					<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
 				{{/if}}
 
 			</div>
@@ -58,7 +58,7 @@
 								{{input type="text" class='transparent-input' id='description' value=description size="20"}}
 							</div>
 
-							<div {{action "addPaymentToTrip"}} class="standard-button">Add payment</div>
+							<div {{action "addPaymentToTrip"}} class="standard-button action-button">Add payment</div>
 							{{#if formError}}
 								<div class="message-box error-message">Error: {{formError}}</div>
 							{{/if}}
@@ -79,7 +79,7 @@
 									{{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
 									on
 									{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
-									<button {{action "updatePayment"}} class="standard-button">Update</button>
+									<button {{action "updatePayment"}} class="standard-button action-button">Update</button>
 								{{else}}
 									{{current-user-you payment.user session.currentUser}} dropped
 									<span id='payment-amount'>${{payment.amount}}</span> on
@@ -133,7 +133,7 @@
 					{{#if isSettled}}
 						<div class="standard-button inactive-button" id="settle-trip-button">Trip Settled</div>
 					{{else}}
-						<div class="standard-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
+						<div class="standard-button action-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
 					{{/if}}
 
 					{{#if confirmSettleTrip}}
