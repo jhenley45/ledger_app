@@ -9,13 +9,16 @@
 }
 
 .flash-warning {
-    background-color: red;
+  @extend .flash-message;
+  background-color: red;
 }
 
 .flash-success {
-    background-color: green;
+  @extend .flash-message;
+  background-color: green;
 }
 
 .flash-notice {
-    background-color: blue;
+  @extend .flash-message;
+  background-color: blue;
 }

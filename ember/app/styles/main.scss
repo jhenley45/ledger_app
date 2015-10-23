@@ -36,7 +36,6 @@ body {
 
 /** BUTTONS **/
 .standard-button {
-	background-color: $action-color;
 	padding: 10px;
 	border-radius: 10px;
 	color: white;
@@ -45,12 +44,17 @@ body {
 }
 
 .standard-button:hover {
-	color: $action-color-hover;
 	text-decoration: none;
 	cursor: pointer;
 }
 
+.action-button {
+	background-color: $action-color;
+}
 
+.action-button:hover {
+	color: $action-color-hover;
+}
 
 
 /** NOTIFICATIONS **/
