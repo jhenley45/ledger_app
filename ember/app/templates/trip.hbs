@@ -5,37 +5,67 @@
 </div>
 -->
 
-<div class="trip-content">
-	<div class="row">
-		<div class="col-md-10">
-
-			<h3 id="trip-title">{{title}}</h3>
-
-			<div class="trip-members">
-
-				<h4 id="trip-members-title" style="display: inline-block;">Trip members:</h3>
-
-					<div class="trip-members">
-						{{#each user in usersWithoutOrganizer}}
-							<div class="trip-member">{{user.username}}</div>
-						{{/each}}
-					</div>
-
-				<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
-
-				{{#if isAddUserVisible}}
-					<div class="form-group">
-						{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
-					</div>
-
-					<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
-				{{/if}}
-
-			</div>
+{{#if settlements.length}}
+	<div class="trip-summary trip-sidebar">
+		<div class="section-title">
+			Trip Summary
 		</div>
-		<div class="col-md-4">
-			<h3>Organizer</h3>
-			<div class="trip-organizer">{{current-user-you organizer session.currentUser}}</div>
+
+
+		<div class="settlements">
+			{{#each settlement in settlements}}
+				<div class="settlement">
+					{{settlement.payer.username}} owes {{settlement.payee.username}} <span class="settlement-amount">${{settlement.amount}}</span>
+				</div>
+			{{/each}}
+		</div>
+
+		<div class="center-div-80">
+			{{#if isSettled}}
+				<div class="standard-button inactive-button" id="settle-trip-button">Trip Settled</div>
+			{{else}}
+				<div class="standard-button action-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
+			{{/if}}
+
+			{{#if confirmSettleTrip}}
+				<button {{action "settleTrip"}}class="standard-button">Yes</button>
+				<button {{action 'hideConfirmSettleTrip'}} class="standard-button">No, cancel</button>
+			{{/if}}
+		</div>
+	</div>
+{{/if}}
+
+
+<div class="">
+	<div class="row">
+
+
+		<div class="col-md-9 trip-content">
+			<section class="trip-heading">
+				<h1 id="trip-title">{{title}}</h1>
+
+				<div class="row trip-details border-bottom border-top full-width">
+					<div class="col-md-5">
+						<span class="bold">Organizer:</span>
+						<div class="trip-organizer inline-block">{{current-user-you organizer session.currentUser}}</div>
+					</div>
+					<div class="trip-members col-md-5">
+						<span id="trip-members-title" class="bold">Trip members:</span>
+							<div class="trip-members">
+								{{#each user in usersWithoutOrganizer}}
+									<div class="trip-member">{{user.username}}</div>
+								{{/each}}
+							</div>
+						<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
+						{{#if isAddUserVisible}}
+							<div class="form-group">
+								{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
+							</div>
+							<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
+						{{/if}}
+					</div>
+				</div>
+			</section>
 		</div>
 	</div>
 
@@ -114,36 +144,6 @@
 				</div>
 			{{/if}}
 		</div>
-
-		{{#if settlements.length}}
-			<div class="col-md-4 trip-summary">
-				<div class="section-title">
-					Trip Summary
-				</div>
-
-
-				<div class="settlements">
-					{{#each settlement in settlements}}
-						<div class="settlement">
-							{{settlement.payer.username}} owes {{settlement.payee.username}} <span class="settlement-amount">${{settlement.amount}}</span>
-						</div>
-					{{/each}}
-				</div>
-
-				<div class="center-div-80">
-					{{#if isSettled}}
-						<div class="standard-button inactive-button" id="settle-trip-button">Trip Settled</div>
-					{{else}}
-						<div class="standard-button action-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
-					{{/if}}
-
-					{{#if confirmSettleTrip}}
-						<button {{action "settleTrip"}}class="standard-button">Yes</button>
-						<button {{action 'hideConfirmSettleTrip'}} class="standard-button">No, cancel</button>
-					{{/if}}
-				</div>
-			</div>
-		{{/if}}
 	</div>
 
 

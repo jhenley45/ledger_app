@@ -31,7 +31,7 @@ body {
 	text-align: center;
 	color: white;
 	font-size: 30px;
-	background-color: #00B0B9;
+	background-color: $primary-green;
 }
 
 /** BUTTONS **/
@@ -74,4 +74,32 @@ body {
 .center-div-80 {
 	width: 80%;
 	margin: 0 auto;
+}
+
+
+
+
+/** FUNCTIONAL CLASSES **/
+.border-bottom {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #d9d9de;
+}
+
+.border-top {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #d9d9de;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.bold {
+	font-weight: bold;
 }

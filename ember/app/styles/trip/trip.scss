@@ -2,9 +2,22 @@
 	padding: 0px 100px;
 }
 
+#trip-title {
+	text-align: center;
+}
+
+.trip-details {
+	padding: 10px 0px;
+	font-size: 15px;
+}
+
 .trip-members {
 	overflow: scroll;
 	display: inline-block;
+}
+
+#trip-title {
+	margin: 25px 0px;
 }
 
 .trip-member {
@@ -49,6 +62,12 @@
 
 
 /** TRIP SUMMARY SIDEBAR **/
+.trip-sidebar {
+		width: 300px;
+		height: 100%;
+		display: inline-block;
+}
+
 .trip-summary {
 	padding: 0px;
 	background-color: #f4ece9;
