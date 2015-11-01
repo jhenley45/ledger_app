@@ -36,122 +36,117 @@
 {{/if}}
 
 
-<div class="">
-	<div class="row">
+<div class="trip-container">
+	<div class="trip-content">
+		<section class="trip-heading">
+			<h1 id="trip-title">{{title}}</h1>
 
-
-		<div class="col-md-9 trip-content">
-			<section class="trip-heading">
-				<h1 id="trip-title">{{title}}</h1>
-
-				<div class="row trip-details border-bottom border-top full-width">
-					<div class="col-md-5">
-						<span class="bold">Organizer:</span>
-						<div class="trip-organizer inline-block">{{current-user-you organizer session.currentUser}}</div>
-					</div>
-					<div class="trip-members col-md-5">
-						<span id="trip-members-title" class="bold">Trip members:</span>
-							<div class="trip-members">
-								{{#each user in usersWithoutOrganizer}}
-									<div class="trip-member">{{user.username}}</div>
-								{{/each}}
-							</div>
-						<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
-						{{#if isAddUserVisible}}
-							<div class="form-group">
-								{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
-							</div>
-							<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
-						{{/if}}
-					</div>
+			<div class="row trip-details border-bottom border-top full-width">
+				<div class="col-md-5">
+					<span class="bold">Organizer:</span>
+					<div class="trip-organizer inline-block">{{current-user-you organizer session.currentUser}}</div>
 				</div>
-			</section>
-		</div>
-	</div>
-
-
-	<!-- PAYMENTS -->
-	<div class="row">
-		<div class="col-md-8 payments-content">
-
-			<h4 class="inline">Payments</h4>
-
-			<div {{action "toggleNewPaymentForm"}} class="add-button inline" id="new-payment-button" style="margin-left: 20px;">{{newPaymentButtonText}}</div>
-
-			{{#if isAddPaymentVisible}}
-				<div>
-					<div class="new-payment-form">
-						<div class="center-div-80">
-							<div style="margin-bottom: 10px;">
-								I spent $
-								{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
-								on
-								{{input type="text" class='transparent-input' id='description' value=description size="20"}}
-							</div>
-
-							<div {{action "addPaymentToTrip"}} class="standard-button action-button">Add payment</div>
-							{{#if formError}}
-								<div class="message-box error-message">Error: {{formError}}</div>
-							{{/if}}
+				<div class="trip-members col-md-5">
+					<span id="trip-members-title" class="bold">Trip members:</span>
+						<div class="trip-members">
+							{{#each user in usersWithoutOrganizer}}
+								<div class="trip-member">{{user.username}}</div>
+							{{/each}}
 						</div>
-					</div>
+					<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
+					{{#if isAddUserVisible}}
+						<div class="form-group">
+							{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
+						</div>
+						<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
+					{{/if}}
 				</div>
+			</div>
+		</section>
 
-			{{/if}}
-			<hr>
-			{{#if payments.length}}
-				<div class="payments">
-					{{#each payment in payments itemController='payment'}}
-						<div class="payment">
-							<img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
-							<span style="margin-left: 20px;">
-								{{#if payment.isEditing}}
-									You dropped
-									{{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
+
+		<!-- PAYMENTS -->
+		<div class="row">
+			<div class="col-md-8 payments-content">
+
+				<h4 class="inline">Payments</h4>
+
+				<div {{action "toggleNewPaymentForm"}} class="add-button inline" id="new-payment-button" style="margin-left: 20px;">{{newPaymentButtonText}}</div>
+
+				{{#if isAddPaymentVisible}}
+					<div>
+						<div class="new-payment-form">
+							<div class="center-div-80">
+								<div style="margin-bottom: 10px;">
+									I spent $
+									{{input type="text" class='transparent-input' id='amount' value=amount size="5"}}
 									on
-									{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
-									<button {{action "updatePayment"}} class="standard-button action-button">Update</button>
-								{{else}}
-									{{current-user-you payment.user session.currentUser}} dropped
-									<span id='payment-amount'>${{payment.amount}}</span> on
-									<span id='payment-description'>{{payment.description}}</span>
-								{{/if}}
-							</span>
-							{{#if payment.belongsToCurrentUser}}
-								<span>
-									<i {{action "toggleConfirmRemovePayment"}} id="remove-payment" class="fa fa-times"></i>
-								</span>
-								<span>
-									<i {{action "showEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
-								</span>
-								{{#if payment.updatePaymentError}}
-									<div class="message-box error-message">Error: {{payment.updatePaymentError}}</div>
-								{{/if}}
-							{{/if}}
-							{{#if payment.confirmRemove}}
-								<div>
-									Are you sure you want to delete this payment?
-									<button {{action "removePayment" payment}} class="standard-button">Yes</button>
-									<button {{action "toggleConfirmRemovePayment"}} class="standard-button">No, cancel</button>
+									{{input type="text" class='transparent-input' id='description' value=description size="20"}}
 								</div>
-							{{/if}}
+
+								<div {{action "addPaymentToTrip"}} class="standard-button action-button">Add payment</div>
+								{{#if formError}}
+									<div class="message-box error-message">Error: {{formError}}</div>
+								{{/if}}
+							</div>
 						</div>
-					{{/each}}
-				</div>
-			{{else}}
-				<div class="warning-block">
-					There are currently no payments for this trip
-				</div>
-			{{/if}}
+					</div>
+
+				{{/if}}
+				<hr>
+				{{#if payments.length}}
+					<div class="payments">
+						{{#each payment in payments itemController='payment'}}
+							<div class="payment">
+								<img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
+								<span style="margin-left: 20px;">
+									{{#if payment.isEditing}}
+										You dropped
+										{{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
+										on
+										{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
+										<button {{action "updatePayment"}} class="standard-button action-button">Update</button>
+									{{else}}
+										{{current-user-you payment.user session.currentUser}} dropped
+										<span id='payment-amount'>${{payment.amount}}</span> on
+										<span id='payment-description'>{{payment.description}}</span>
+									{{/if}}
+								</span>
+								{{#if payment.belongsToCurrentUser}}
+									<span>
+										<i {{action "toggleConfirmRemovePayment"}} id="remove-payment" class="fa fa-times"></i>
+									</span>
+									<span>
+										<i {{action "showEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
+									</span>
+									{{#if payment.updatePaymentError}}
+										<div class="message-box error-message">Error: {{payment.updatePaymentError}}</div>
+									{{/if}}
+								{{/if}}
+								{{#if payment.confirmRemove}}
+									<div>
+										Are you sure you want to delete this payment?
+										<button {{action "removePayment" payment}} class="standard-button">Yes</button>
+										<button {{action "toggleConfirmRemovePayment"}} class="standard-button">No, cancel</button>
+									</div>
+								{{/if}}
+							</div>
+						{{/each}}
+					</div>
+				{{else}}
+					<div class="warning-block">
+						There are currently no payments for this trip
+					</div>
+				{{/if}}
+			</div>
 		</div>
 	</div>
+</div> <!-- end trip container -->
 
 
 
 
-	{{!-- decide where to go --}}
-	{{#if isCurrentUserOrganizer}}
-		<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
-	{{/if}}
-
-</div>
+{{!-- decide where to go --}}
+{{#if isCurrentUserOrganizer}}
+	<button {{action "deleteTrip" this}} class="standard-button">Delete trip</button>
+{{/if}}

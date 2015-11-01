@@ -1,5 +1,12 @@
 .trip-content {
 	padding: 0px 100px;
+	overflow: scroll;
+}
+
+.trip-container {
+	position: fixed;
+	left: 300px;
+	width: 100%;
 }
 
 #trip-title {
@@ -63,9 +70,10 @@
 
 /** TRIP SUMMARY SIDEBAR **/
 .trip-sidebar {
-		width: 300px;
-		height: 100%;
-		display: inline-block;
+	width: 300px;
+	height: 100%;
+	position: fixed;
+	left: 0px;
 }
 
 .trip-summary {
