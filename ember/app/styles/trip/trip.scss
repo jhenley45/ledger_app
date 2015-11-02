@@ -78,7 +78,7 @@
 
 .trip-summary {
 	padding: 0px;
-	background-color: #f4ece9;
+	background-color: #eee;
 }
 
 .settlements {
@@ -90,6 +90,6 @@
 	padding: 15px 0px;
 }
 
-#settle-trip-button {
-	margin-bottom: 30px;
+.settlement-amount {
+	color: $primary-green;
 }

@@ -43,6 +43,11 @@ body {
 	font-size: 16px;
 }
 
+.standard-button-flat {
+	@extend .standard-button;
+	border-radius: 0px;
+}
+
 .standard-button:hover {
 	text-decoration: none;
 	cursor: pointer;
