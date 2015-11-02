@@ -4,9 +4,9 @@
 }
 
 .trip-container {
-	position: fixed;
-	left: 300px;
-	width: 100%;
+	position: relative;
+	margin-left: 300px;
+	width: auto;
 }
 
 #trip-title {
