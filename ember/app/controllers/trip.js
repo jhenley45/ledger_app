@@ -46,9 +46,6 @@ export default Ember.ObjectController.extend({
 				_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 			});
 		},
-		toggleNewPaymentForm : function() {
-			this.set('isAddPaymentVisible', !this.get('isAddPaymentVisible'));
-		},
 		toggleAddUser: function() {
 			this.set('isAddUserVisible', !this.get('isAddUserVisible'));
 		},
@@ -103,7 +100,6 @@ export default Ember.ObjectController.extend({
 					_this.set('description', undefined);
 					_this.set('amount', undefined);
 					_this.send('flashMessage', 'New payment successfully created', 'success');
-					_this.set('isAddPaymentVisible', false);
 				}, function() {
 					// need to destroy payment object
 					_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
@@ -111,14 +107,6 @@ export default Ember.ObjectController.extend({
 			}
 		}
 	},
-
-	newPaymentButtonText : function() {
-		if (this.get('isAddPaymentVisible')) {
-			return 'Cancel';
-		} else {
-			return 'Add Payment';
-		}
-	}.property('isAddPaymentVisible'),
 
 	addNewUserButtonText : function() {
 		if (this.get('isAddUserVisible')) {
