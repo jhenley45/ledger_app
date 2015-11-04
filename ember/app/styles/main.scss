@@ -53,6 +53,11 @@ body {
 	cursor: pointer;
 }
 
+.primary-button {
+	@extend .standard-button;
+	background-color: $primary-green;
+}
+
 .action-button {
 	background-color: $action-color;
 }

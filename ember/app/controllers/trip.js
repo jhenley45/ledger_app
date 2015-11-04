@@ -114,9 +114,9 @@ export default Ember.ObjectController.extend({
 
 	newPaymentButtonText : function() {
 		if (this.get('isAddPaymentVisible')) {
-			return '-';
+			return 'Cancel';
 		} else {
-			return '+';
+			return 'Add Payment';
 		}
 	}.property('isAddPaymentVisible'),
 

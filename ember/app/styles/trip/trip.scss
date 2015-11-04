@@ -54,7 +54,10 @@
 }
 
 .payment {
-	margin: 20px 0px;
+	margin: 10px 0px;
+	padding: 10px 5px;
+	background-color: $primary-background;
+	border-radius: 5px;
 }
 
 .new-payment-form {
@@ -78,7 +81,7 @@
 
 .trip-summary {
 	padding: 0px;
-	background-color: #eee;
+	background-color: $primary-background;
 }
 
 .settlements {
