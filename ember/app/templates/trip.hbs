@@ -79,10 +79,10 @@
 						<div class="col-md-4">
 							<div {{action "addPaymentToTrip"}} class="standard-button action-button">Add payment</div>
 						</div>
-						{{#if formError}}
-							<div class="message-box error-message">Error: {{formError}}</div>
-						{{/if}}
 					</div>
+					{{#if formError}}
+						<div class="message-box error-message">Error: {{formError}}</div>
+					{{/if}}
 				</div>
 				{{#if payments.length}}
 					<div class="payments">
