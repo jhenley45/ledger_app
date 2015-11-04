@@ -89,40 +89,7 @@
 				{{#if payments.length}}
 					<div class="payments">
 						{{#each payment in payments itemController='payment'}}
-							<div class="payment">
-								<img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
-								<span style="margin-left: 20px;">
-									{{#if payment.isEditing}}
-										You dropped
-										{{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
-										on
-										{{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
-										<button {{action "updatePayment"}} class="standard-button action-button">Update</button>
-									{{else}}
-										{{current-user-you payment.user session.currentUser}} dropped
-										<span id='payment-amount'>${{payment.amount}}</span> on
-										<span id='payment-description'>{{payment.description}}</span>
-									{{/if}}
-								</span>
-								{{#if payment.belongsToCurrentUser}}
-									<span>
-										<i {{action "toggleConfirmRemovePayment"}} id="remove-payment" class="fa fa-times"></i>
-									</span>
-									<span>
-										<i {{action "showEditPayment"}} id="edit-payment" class="fa fa-edit"></i>
-									</span>
-									{{#if payment.updatePaymentError}}
-										<div class="message-box error-message">Error: {{payment.updatePaymentError}}</div>
-									{{/if}}
-								{{/if}}
-								{{#if payment.confirmRemove}}
-									<div>
-										Are you sure you want to delete this payment?
-										<button {{action "removePayment" payment}} class="standard-button">Yes</button>
-										<button {{action "toggleConfirmRemovePayment"}} class="standard-button">No, cancel</button>
-									</div>
-								{{/if}}
-							</div>
+							{{list-payment paymentBinding=payment}}
 						{{/each}}
 					</div>
 				{{else}}
