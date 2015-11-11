@@ -9,9 +9,7 @@ module('Integration - New Payment', {
   beforeEach: function() {
     App = startApp();
     signIn().then(function() {
-      visit('/trips/2').then(function() {
-        click(find('div#new-payment-button'));
-      });
+      visit('/trips/2');
     });
   },
   afterEach: function() {
@@ -59,10 +57,11 @@ test('Should add the payment to the list of existing trip payments after it is c
   });
 });
 
-test('Should hide the new payment form after payment has been added.', function(assert) {
+test('Should clear the new payment form after payment has been added.', function(assert) {
   fillIn(find('input#description'), 'Test Payment 4');
   fillIn(find('input#amount'), '230');
   click(find('div:contains("Add payment")')).then(function() {
-    assert.equal(find('div#new-payment-button').length, 1);
+    assert.equal(find('input#amount').text(), '');
+    assert.equal(find('input#description').text(), '');
   });
 });
