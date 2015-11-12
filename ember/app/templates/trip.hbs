@@ -89,7 +89,7 @@
 				{{#if payments.length}}
 					<div class="payments">
 						{{#each payment in payments itemController='payment'}}
-							{{list-payment paymentBinding=payment delete="removePayment"}}
+							{{list-payment paymentBinding=payment delete="removePayment" edit="updatePayment"}}
 						{{/each}}
 					</div>
 				{{else}}

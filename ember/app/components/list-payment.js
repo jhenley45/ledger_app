@@ -13,8 +13,15 @@ export default Ember.ListPaymentComponent = Ember.Component.extend({
     toggleConfirmRemovePayment : function() {
       this.set('confirmRemove', !this.get('confirmRemove'));
     },
+    showEditPayment : function() {
+      this.set('isEditing', !this.get('isEditing'));
+    },
     removePayment: function() {
       this.sendAction("delete", this.get('payment').get('content'));
+    },
+    updatePayment: function() {
+      this.sendAction("edit");
+      this.set('isEditing', false);
     }
   }
 

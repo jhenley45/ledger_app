@@ -3,16 +3,16 @@
     <div class="col-md-10">
       <img src="http://cdn3.rd.io/user/no-user-image-square.jpg" class="profile-image">
       <span style="margin-left: 20px;">
-        {{#if payment.isEditing}}
+        {{#if isEditing}}
           You dropped
-          {{input type="text" class='transparent-input' id='amount' value=payment.amount size="5"}}
+          {{input type="text" class='transparent-input edit-payment-amount' value=payment.amount size="5"}}
           on
-          {{input type="text" class='transparent-input' id='description' value=payment.description size="20"}}
+          {{input type="text" class='transparent-input edit-payment-description' value=payment.description size="20"}}
           <button {{action "updatePayment"}} class="standard-button action-button">Update</button>
         {{else}}
           {{current-user-you payment.user session.currentUser}} dropped
-          <span id='payment-amount'>${{payment.amount}}</span> on
-          <span id='payment-description'>{{payment.description}}</span>
+          <span class='payment-amount'>${{payment.amount}}</span> on
+          <span class='payment-description'>{{payment.description}}</span>
         {{/if}}
       </span>
       {{#if confirmRemove}}

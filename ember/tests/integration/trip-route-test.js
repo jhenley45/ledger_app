@@ -43,22 +43,6 @@ test('Should display "You" as the payment owner when it is the current user', fu
 	});
 });
 
-test('Should have a button to allow the user to create a new payment for the trip', function(assert) {
-  assert.equal(find('div#new-payment-button').length, 1);
-});
-
-test('Should display a form when the user clicks on the new payment button', function(assert) {
-  click(find('div#new-payment-button')).then(function() {
-  	assert.equal(find('.transparent-input').length, 2);
-  });
-});
-
-test('Should change the text of the link once the user has clicked on it', function(assert) {
-  click(find('div#new-payment-button')).then(function() {
-  	assert.equal(find('div#new-payment-button:contains("-")').length, 1);
-  });
-});
-
 
 // DELETE TRIP
 test('Should not have a button to allow the user to delete a trip if they are not the organizer', function(assert) {
