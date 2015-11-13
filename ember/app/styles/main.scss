@@ -29,9 +29,7 @@ body {
 .section-title {
 	padding: 20px;
 	text-align: center;
-	color: white;
 	font-size: 30px;
-	background-color: $primary-green;
 }
 
 /** BUTTONS **/
@@ -59,7 +57,7 @@ body {
 }
 
 .action-button {
-	background-color: $action-color;
+	background-color: $secondary-blue;
 }
 
 .action-button:hover {
