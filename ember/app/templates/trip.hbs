@@ -22,9 +22,9 @@
 
 		<div class="">
 			{{#if isSettled}}
-				<div class="standard-button-flat inactive-button" id="settle-trip-button">Trip Settled</div>
+				<div class="standard-button inactive-button" id="settle-trip-button">Trip Settled</div>
 			{{else}}
-				<div class="standard-button-flat action-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
+				<div class="standard-button action-button" id="settle-trip-button" {{action "confirmSettleTrip"}}>Settle Trip</div>
 			{{/if}}
 
 			{{#if confirmSettleTrip}}
