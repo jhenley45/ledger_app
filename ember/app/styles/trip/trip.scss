@@ -63,10 +63,12 @@
 
 .new-payment-form {
 	margin: 10px;
-	background-color: #f4ece9;
 	padding: 20px;
+	background-color: white;
 	border-radius: 5px;
 	font-size: 16px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	border: 1px solid $primary-blue;
 }
 
 .new-payment-text {
