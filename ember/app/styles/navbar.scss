@@ -3,6 +3,7 @@
     color: white;
     border: none;
     border-radius: 0px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .navbar-default {
@@ -10,7 +11,7 @@
 }
 
 .navbar-default .navbar-brand {
-    color: white;
+    color: $main-font;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -19,7 +20,7 @@
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+    color: $main-font;
 }
 
 .navbar-default .navbar-nav > li > a:hover,

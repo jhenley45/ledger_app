@@ -56,8 +56,9 @@
 .payment {
 	margin: 15px 0px;
 	padding: 20px 5px;
-	background-color: $primary-background;
+	background-color: white;
 	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .new-payment-form {
