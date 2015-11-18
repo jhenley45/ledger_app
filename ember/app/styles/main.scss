@@ -7,6 +7,10 @@ body {
 	display: inline-block;
 }
 
+.container-fluid {
+	padding: 0px;
+}
+
 .profile-image {
 	border-radius: 50%;
 	border: none;
@@ -86,15 +90,11 @@ body {
 
 /** FUNCTIONAL CLASSES **/
 .border-bottom {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #d9d9de;
+	border-top: 1px solid #EFF0F1;
 }
 
 .border-top {
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #d9d9de;
+	border-top: 1px solid #EFF0F1;
 }
 
 .full-width {
@@ -107,4 +107,8 @@ body {
 
 .bold {
 	font-weight: bold;
+}
+
+.no-margin {
+	margin: 0px;
 }

@@ -1,10 +1,3 @@
-<!--
-<div class="row">
-	<div class="col-md-12" style="height: 400px; background-color: yellow;">
-	</div>
-</div>
--->
-
 {{#if settlements.length}}
 	<div class="trip-summary trip-sidebar">
 		<div class="section-title">
@@ -37,34 +30,35 @@
 
 
 <div class="trip-container">
-	<div class="trip-content">
-		<section class="trip-heading">
-			<h1 id="trip-title">{{title}}</h1>
+	<div class="trip-heading border-top">
+		<div id="trip-title">
+			{{title}}
+		</div>
 
-			<div class="row trip-details border-bottom border-top full-width">
-				<div class="col-md-5">
-					<span class="bold">Organizer:</span>
-					<div class="trip-organizer inline-block">{{current-user-you organizer session.currentUser}}</div>
-				</div>
-				<div class="trip-members col-md-5">
-					<span id="trip-members-title" class="bold">Trip members:</span>
-						<div class="trip-members">
-							{{#each user in usersWithoutOrganizer}}
-								<div class="trip-member">{{user.username}}</div>
-							{{/each}}
-						</div>
-					<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
-					{{#if isAddUserVisible}}
-						<div class="form-group">
-							{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
-						</div>
-						<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
-					{{/if}}
+		<div class="row trip-details full-width border-top no-margin">
+			<div class="col-md-12">
+				<span id="trip-members-title" class="bold">Trip members:</span>
+				<div class="trip-members">
+					<div class="inline-block">{{current-user-you organizer session.currentUser}}</div>
+					{{#each user in usersWithoutOrganizer}}
+						<div class="trip-member">{{current-user-you user session.currentUser}}</div>
+					{{/each}}
 				</div>
 			</div>
-		</section>
+			<div class="trip-members col-md-5">
+				<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
+				{{#if isAddUserVisible}}
+					<div class="form-group">
+						{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
+					</div>
+					<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
+				{{/if}}
+			</div>
+		</div>
+	</div>
 
 
+	<div class="trip-content">
 		<!-- PAYMENTS -->
 		<div class="row">
 			<div class="col-md-12 payments-content">
