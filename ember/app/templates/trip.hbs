@@ -43,16 +43,11 @@
 					{{#each user in usersWithoutOrganizer}}
 						<div class="trip-member">{{current-user-you user session.currentUser}}</div>
 					{{/each}}
-				</div>
-			</div>
-			<div class="trip-members col-md-5">
-				<div {{action "toggleAddUser"}} id='new-user-button' class="add-button inline">{{addNewUserButtonText}}</div>
-				{{#if isAddUserVisible}}
 					<div class="form-group">
 						{{input type="text" class="form-control" id='add-user' value=addUser size="60" placeholder="Search for users"}}
 					</div>
 					<button {{action "addUserToTrip"}} class="standard-button action-button">Add user</button>
-				{{/if}}
+				</div>
 			</div>
 		</div>
 	</div>

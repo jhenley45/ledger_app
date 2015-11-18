@@ -46,9 +46,6 @@ export default Ember.ObjectController.extend({
 				_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
 			});
 		},
-		toggleAddUser: function() {
-			this.set('isAddUserVisible', !this.get('isAddUserVisible'));
-		},
 		addUserToTrip: function() {
 			var username = this.get('addUser');
 			var trip = this.get('model');
@@ -68,7 +65,6 @@ export default Ember.ObjectController.extend({
       	_this.send('flashMessage', 'An error occurred while processing your request', 'warning');
       }).always(function() {
       	Ember.run(function() {
-      		_this.set('isAddUserVisible', false);
       		_this.set('addUser', undefined);
       	});
       });
@@ -107,14 +103,6 @@ export default Ember.ObjectController.extend({
 			}
 		}
 	},
-
-	addNewUserButtonText : function() {
-		if (this.get('isAddUserVisible')) {
-			return '-';
-		} else {
-			return '+';
-		}
-	}.property('isAddUserVisible'),
 
 	isCurrentUserOrganizer : function() {
 		if (this.get('organizer')) {
