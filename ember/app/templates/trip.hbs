@@ -36,18 +36,20 @@
 		</div>
 
 		<div class="row trip-details full-width border-top no-margin">
-			<div class="col-md-12">
+			<div class="trip-members">
 				<span id="trip-members-title" class="bold">Trip members:</span>
-				<div class="trip-members">
-					<div class="inline-block">{{current-user-you organizer session.currentUser}}</div>
-					{{#each user in usersWithoutOrganizer}}
-						<div class="trip-member">{{current-user-you user session.currentUser}}</div>
-					{{/each}}
-					<div class="form-group no-margin inline-block">
-						{{input type="text" class="form-control" id='add-user' value=addUser size="20" placeholder="Search for users"}}
-					</div>
-					<div {{action "addUserToTrip"}} class="outline-button action-button inline-block">Add user</div>
+				<div class="inline-block">
+					{{current-user-you organizer session.currentUser}}
 				</div>
+				{{#each user in usersWithoutOrganizer}}
+					<div class="trip-member">{{current-user-you user session.currentUser}}</div>
+				{{/each}}
+				</div>
+			<div class="pull-right inline-block">
+				<div class="form-group no-margin inline-block">
+					{{input type="text" class="form-control" id='add-user' value=addUser size="20" placeholder="Search for users"}}
+				</div>
+				<div {{action "addUserToTrip"}} class="outline-button action-button inline-block">Add user</div>
 			</div>
 		</div>
 	</div>
