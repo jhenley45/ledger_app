@@ -18,7 +18,7 @@ module('Integration - Trip Page', {
 });
 
 test('Should have a title of "Trip 1"', function(assert) {
-  assert.equal(find('#trip-title').text(), 'Trip 1');
+  assert.equal(find('#trip-title').text().trim(), 'Trip 1');
 });
 
 test('Should display a message if there are no existing payments for a trip', function(assert) {
@@ -79,70 +79,36 @@ test('Should have a section with the title "Trip members"', function(assert) {
 
 test('Should list the members of the trip', function(assert) {
   visit('/trips/2').then(function() {
-    assert.equal(find('div.trip-member').length, 2);
+    assert.equal(find('div.trip-member').length, 3);
   });
-});
-
-test('Should display the username of the organizer of the trip', function(assert) {
-  assert.equal(find('div.trip-organizer:contains("test_user2")').length, 1);
 });
 
 test('Should display "You" instead of the username when currentUser is organizer', function(assert) {
   visit('/trips/2').then(function() {
-    assert.equal(find('div.trip-organizer:contains("You")').length, 1);
+    assert.equal(find('div.trip-member:contains("You")').length, 1);
   });
 });
 
 test('Should have a button to allow you to add a user to a trip', function(assert) {
-  assert.equal(find('#new-user-button').length, 1);
-});
-
-test('Should show a form to add a new user when add new user button is clicked', function(assert) {
-  click((find('#new-user-button'))).then(function() {
-    assert.equal(find('button.standard-button:contains("Add user")').length, 1);
-  });
-});
-
-test('Should change the text of the button when add new user button is clicked', function(assert) {
-  click((find('#new-user-button'))).then(function() {
-    assert.equal(find('#new-user-button:contains("-")').length, 1);
-  });
+  assert.equal(find('div.action-button:contains("Add user")').length, 1);
 });
 
 test('Adds a new user to the list when the user clicks "Add user"', function(assert) {
   visit('/trips/2').then(function() {
-    click(find('#new-user-button')).then(function() {
-     fillIn(find('input#add-user'), 'test_user5').then(function() {
-      click(find('button.standard-button:contains("Add user")')).then(function() {
-        assert.equal(find('div.trip-member:contains("test_user5")').length, 1);
-      });
-     });
+   fillIn(find('input#add-user'), 'test_user5').then(function() {
+    click(find('div.action-button:contains("Add user")')).then(function() {
+      assert.equal(find('div.trip-member:contains("test_user5")').length, 1);
     });
-  });
-});
-
-test('Hides the form after a user is successfully added', function(assert) {
-  visit('/trips/2').then(function() {
-    click(find('#new-user-button')).then(function() {
-     fillIn(find('input#add-user'), 'test_user5').then(function() {
-      click(find('button.standard-button:contains("Add user")')).then(function() {
-        assert.equal(find('button.standard-button:contains("Add user")').length, 0);
-      });
-     });
-    });
+   });
   });
 });
 
 test('Should clear the form after a user is successfully added', function(assert) {
   visit('/trips/2').then(function() {
-    click(find('#new-user-button')).then(function() {
-     fillIn(find('input#add-user'), 'test_user5').then(function() {
-      click(find('button.standard-button:contains("Add user")')).then(function() {
-        click(find('#new-user-button')).then(function() {
-          assert.equal(find('input#add-user').val(), "");
-        });
+    fillIn(find('input#add-user'), 'test_user5').then(function() {
+      click(find('div.action-button:contains("Add user")')).then(function() {
+        assert.equal(find('input#add-user').val(), "");
       });
-     });
     });
   });
 });

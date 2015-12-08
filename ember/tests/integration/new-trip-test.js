@@ -56,7 +56,7 @@ test('Should not create a new trip unless the user clicks submit', function(asse
 test('Should transition the user to the new trips route after successfully creating a new trip.', function(assert) {
   fillIn(find('input#trip-title'), 'Trip 4').then(function() {
     click(find('button:contains("Submit")')).then(function() {
-      assert.equal(find('#trip-title').text(), 'Trip 4');
+      assert.equal(find('#trip-title').text().trim(), 'Trip 4');
     });
   });
 });

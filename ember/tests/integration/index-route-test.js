@@ -33,13 +33,13 @@ test('Should display the title of each trip in a link', function(assert) {
 
 test('Should be able to go to a trip page from the index route', function(assert) {
   click('a:contains("Trip 1")').then(function() {
-    assert.equal(find('#trip-title').text(), 'Trip 1');
+    assert.equal(find('#trip-title').text().trim(), 'Trip 1');
   });
 });
 
 test('Should be able visit a trips page', function(assert) {
   visit('/trips/1').then(function() {
-    assert.equal(find('#trip-title').text(), 'Trip 1');
+    assert.equal(find('#trip-title').text().trim(), 'Trip 1');
   });
 });
 
